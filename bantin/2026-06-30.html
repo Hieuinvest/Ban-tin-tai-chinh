@@ -3,271 +3,381 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Bản tin TTCK – 30.06.2026</title>
+<title>Bản tin TTCK — 30/06/2026 | Dow Jones lập kỷ lục, Bitcoin áp lực dưới 60K</title>
 <style>
   :root {
-    --green: #16a34a;
-    --red: #dc2626;
-    --blue: #1d4ed8;
-    --gray: #6b7280;
-    --light: #f8fafc;
-    --border: #e2e8f0;
-    --card-bg: #ffffff;
-    --header-bg: #0f172a;
+    --green: #16a34a; --red: #dc2626; --blue: #1d4ed8; --gray: #6b7280;
+    --bg: #f8fafc; --card-bg: #ffffff; --border: #e2e8f0;
+    --header-bg: #0f172a; --accent: #f59e0b;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Segoe UI', Arial, sans-serif; background: var(--light); color: #1e293b; font-size: 15px; line-height: 1.7; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: #1e293b; font-size: 15px; line-height: 1.65; }
   a { color: var(--blue); text-decoration: none; }
   a:hover { text-decoration: underline; }
 
-  /* NAV */
-  .topnav { background: var(--header-bg); padding: 10px 20px; display: flex; align-items: center; gap: 16px; }
-  .topnav a { color: #94a3b8; font-size: 13px; }
+  /* Nav */
+  .topnav { background: var(--header-bg); padding: 8px 20px; font-size: 13px; }
+  .topnav a { color: #94a3b8; }
   .topnav a:hover { color: #fff; }
-  .topnav .sep { color: #334155; }
+  .topnav span { color: #475569; margin: 0 6px; }
 
-  /* HEADER */
-  .header { background: var(--header-bg); color: #fff; padding: 28px 24px 24px; border-bottom: 3px solid #2563eb; }
-  .header .label { font-size: 11px; font-weight: 700; letter-spacing: 2px; color: #60a5fa; text-transform: uppercase; margin-bottom: 8px; }
-  .header h1 { font-size: 1.55rem; font-weight: 800; line-height: 1.3; margin-bottom: 8px; }
+  /* Header */
+  .header { background: var(--header-bg); color: #fff; padding: 28px 20px 22px; }
+  .header .label { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent); font-weight: 600; margin-bottom: 6px; }
+  .header h1 { font-size: clamp(18px, 3vw, 26px); font-weight: 700; line-height: 1.3; margin-bottom: 8px; }
   .header .meta { font-size: 12px; color: #94a3b8; }
-  .header .disclaimer { margin-top: 10px; font-size: 11px; color: #f59e0b; background: rgba(245,158,11,0.12); padding: 6px 10px; border-radius: 4px; display: inline-block; }
 
-  /* CONTAINER */
-  .container { max-width: 860px; margin: 0 auto; padding: 24px 16px; }
+  /* Wrapper */
+  .container { max-width: 900px; margin: 0 auto; padding: 20px 16px 40px; }
 
-  /* STAT CARDS */
-  .stat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; margin: 20px 0; }
-  .stat-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 14px 12px; text-align: center; box-shadow: 0 1px 4px rgba(0,0,0,0.05); }
-  .stat-card .name { font-size: 11px; color: var(--gray); font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 4px; }
-  .stat-card .value { font-size: 1.15rem; font-weight: 800; }
-  .stat-card .change { font-size: 12px; margin-top: 2px; }
+  /* Stat cards */
+  .stat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 10px; margin: 20px 0; }
+  .stat-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; }
+  .stat-card .label { font-size: 11px; color: var(--gray); font-weight: 600; text-transform: uppercase; letter-spacing: .5px; }
+  .stat-card .value { font-size: 18px; font-weight: 700; margin: 2px 0; }
+  .stat-card .change { font-size: 12px; font-weight: 600; }
   .up { color: var(--green); }
-  .down { color: var(--red); }
-  .neutral { color: var(--gray); }
+  .dn { color: var(--red); }
+  .neu { color: var(--gray); }
 
-  /* SECTION */
-  .section { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 22px 24px; margin-bottom: 20px; box-shadow: 0 1px 4px rgba(0,0,0,0.04); }
-  .section-label { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #2563eb; margin-bottom: 4px; }
-  .section h2 { font-size: 1.1rem; font-weight: 800; margin-bottom: 14px; color: #0f172a; border-bottom: 1px solid var(--border); padding-bottom: 8px; }
+  /* Sections */
+  .section { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 20px 22px; margin-bottom: 18px; }
+  .section h2 { font-size: 15px; font-weight: 700; text-transform: uppercase; letter-spacing: .8px; color: var(--header-bg); border-left: 4px solid var(--accent); padding-left: 10px; margin-bottom: 14px; }
   .section p { margin-bottom: 10px; }
   .section p:last-child { margin-bottom: 0; }
-  .impact { background: #f0fdf4; border-left: 3px solid var(--green); padding: 8px 12px; border-radius: 0 6px 6px 0; margin: 8px 0; font-size: 13.5px; color: #15803d; }
-  .impact.red { background: #fef2f2; border-left-color: var(--red); color: var(--red); }
-  .impact.amber { background: #fffbeb; border-left-color: #f59e0b; color: #92400e; }
+  .arrow { font-style: italic; color: #374151; background: #f1f5f9; border-left: 3px solid var(--accent); padding: 5px 10px; margin: 8px 0; font-size: 13.5px; }
 
-  /* BULL BEAR */
-  .bb-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 12px; }
-  .bb-card { border-radius: 8px; padding: 14px; }
-  .bull { background: #f0fdf4; border: 1px solid #bbf7d0; }
-  .bear { background: #fef2f2; border: 1px solid #fecaca; }
-  .bb-card h3 { font-size: 13px; font-weight: 800; margin-bottom: 8px; }
-  .bb-card ul { padding-left: 18px; font-size: 13px; }
-  .bb-card ul li { margin-bottom: 4px; }
-  .desk-view { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 14px; margin-top: 14px; font-size: 13.5px; }
-  .desk-view strong { color: #1d4ed8; }
+  /* Table-style items */
+  .item { border-bottom: 1px solid var(--border); padding: 10px 0; }
+  .item:last-child { border-bottom: none; padding-bottom: 0; }
+  .item .title { font-weight: 600; margin-bottom: 3px; }
+  .item .desc { font-size: 13.5px; color: #374151; }
 
-  /* SOURCES */
-  .sources { background: #f8fafc; border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-top: 20px; }
-  .sources h3 { font-size: 13px; font-weight: 700; color: var(--gray); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
-  .sources p { font-size: 12px; color: var(--gray); font-style: italic; }
+  /* Bull/Bear box */
+  .bb-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+  .bull-box { background: #f0fdf4; border: 1px solid #86efac; border-radius: 8px; padding: 12px 14px; }
+  .bear-box { background: #fff1f2; border: 1px solid #fca5a5; border-radius: 8px; padding: 12px 14px; }
+  .bb-title { font-weight: 700; font-size: 13px; margin-bottom: 6px; }
+  .bb-title.bull { color: var(--green); }
+  .bb-title.bear { color: var(--red); }
+  .bb-list { list-style: none; font-size: 13px; }
+  .bb-list li { padding: 2px 0; }
+  .bb-list li::before { content: "• "; }
 
-  /* FOOTER */
-  footer { text-align: center; font-size: 11px; color: #94a3b8; padding: 24px 16px; }
+  /* Disclaimer */
+  .disclaimer { font-size: 12px; color: var(--gray); font-style: italic; border-top: 1px solid var(--border); padding-top: 8px; margin-top: 10px; }
 
-  @media(max-width:540px) {
-    .header h1 { font-size: 1.2rem; }
+  /* Sources */
+  .sources { background: #f8fafc; border: 1px solid var(--border); border-radius: 10px; padding: 16px 18px; margin-top: 20px; }
+  .sources h3 { font-size: 13px; font-weight: 700; margin-bottom: 8px; color: var(--gray); }
+  .sources ul { list-style: none; }
+  .sources ul li { font-size: 12px; padding: 3px 0; border-bottom: 1px solid #f1f5f9; }
+  .sources ul li:last-child { border-bottom: none; }
+
+  /* Tags */
+  .tag { display: inline-block; font-size: 11px; font-weight: 600; padding: 2px 7px; border-radius: 4px; margin-right: 4px; }
+  .tag-vn { background: #dbeafe; color: #1e40af; }
+  .tag-world { background: #ede9fe; color: #5b21b6; }
+  .tag-hot { background: #fef9c3; color: #92400e; }
+
+  @media (max-width: 600px) {
     .bb-grid { grid-template-columns: 1fr; }
-    .section { padding: 16px; }
+    .stat-grid { grid-template-columns: repeat(3, 1fr); }
   }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav class="topnav">
+<div class="topnav">
   <a href="./index.html">← Trang chủ</a>
-  <span class="sep">|</span>
-  <a href="#">Bản tin 30.06.2026</a>
-</nav>
+  <span>|</span>
+  <span style="color:#64748b;">Bản tin TTCK · 30/06/2026</span>
+</div>
 
-<!-- HEADER -->
 <div class="header">
-  <div class="container">
-    <div class="label">Bản tin TTCK · Research Note</div>
-    <h1>Cuối quý II/2026 — Không có dữ liệu thị trường cập nhật</h1>
-    <div class="meta">Thứ Ba, 30 tháng 6 năm 2026 · Phát hành: Sáng sớm (Giờ Việt Nam)</div>
-    <div class="disclaimer">⚠ Tài liệu này chỉ mang tính thông tin tổng hợp, KHÔNG phải khuyến nghị giao dịch / đầu tư.</div>
+  <div class="container" style="padding-top:0;padding-bottom:0;">
+    <div class="label">Bản tin thị trường chứng khoán</div>
+    <h1>Dow Jones phá kỷ lục 52.000 điểm, Bitcoin chật vật giữ ngưỡng 60K</h1>
+    <p class="meta">Thứ Ba, 30 tháng 06 năm 2026 · Giờ Việt Nam · Tổng hợp từ 18 nguồn</p>
   </div>
 </div>
 
-<!-- BODY -->
 <div class="container">
 
-  <!-- INTRO -->
+  <!-- TÓM TẮT -->
   <div class="section">
-    <div class="section-label">§ 01 · Tổng quan phiên</div>
-    <h2>Mở đầu — Tóm tắt ngày 30.06.2026</h2>
-    <p>Hôm nay là ngày giao dịch cuối cùng của Quý II/2026 — một mốc thời điểm có ý nghĩa với các nhà quản lý danh mục (window dressing, tái cơ cấu danh mục quý). Tuy nhiên, <strong>dữ liệu tin tức thô không được cung cấp</strong> cho bản tin kỳ này, do đó desk không thể đưa ra các số liệu cụ thể về thị trường trong nước, quốc tế, vàng, hàng hóa hay tiền điện tử.</p>
-    <p>Bản tin dưới đây phản ánh đúng tình trạng nguồn dữ liệu: <strong>không có thông tin nào được xác nhận</strong> để đưa tin. Mọi nhận định mang tính bối cảnh chung, KHÔNG dựa trên số liệu thực tế của phiên này.</p>
-    <div class="impact amber">→ Lưu ý: Vì thiếu dữ liệu đầu vào, tất cả các mục bên dưới được ghi nhận trạng thái "Không có cập nhật". Nhà đầu tư nên tham khảo các nguồn dữ liệu chính thống trực tiếp.</div>
+    <h2>§ 01 · Tóm tắt mở đầu</h2>
+    <p>Phiên giao dịch 29/06 tại Wall Street ghi dấu kỷ lục mới: Dow Jones lần đầu tiên đóng cửa trên 52.000 điểm, được dẫn dắt bởi cổ phiếu Alphabet vừa gia nhập chỉ số, trong khi Nasdaq bật tăng hơn 2% kết thúc chuỗi giảm. Trong nước, VN-Index phiên 29/06 giảm gần 17 điểm nhưng độ rộng thị trường tích cực — dòng tiền nóng quay vòng vào nhóm vừa và nhỏ, đặc biệt cổ phiếu chứng khoán nổi bật.</p>
+    <p>Bitcoin tiếp tục chịu áp lực phía dưới ngưỡng 60.000 USD giữa lo ngại Strategy (MicroStrategy) công bố kế hoạch bán ra Bitcoin, trong khi vàng sụt giá do triển vọng lãi suất Mỹ "cao hơn và lâu hơn". Khối ngoại bán ròng gần 800 tỷ đồng phiên 29/06, đưa tổng lượng bán ròng từ đầu năm lên gần 3 tỷ USD.</p>
+    <p>Đây là bản tin tổng hợp thông tin — <strong>không phải khuyến nghị giao dịch/đầu tư.</strong></p>
+
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="label">VN-Index</div>
+        <div class="value neu">~1.29x</div>
+        <div class="change dn">▼ ~17 điểm (29/6)</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Dow Jones</div>
+        <div class="value up">52.000+</div>
+        <div class="change up">▲ Kỷ lục mới</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Nasdaq</div>
+        <div class="value up">+2%</div>
+        <div class="change up">▲ Phục hồi mạnh</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Bitcoin</div>
+        <div class="value dn">&lt;$60K</div>
+        <div class="change dn">▼ Áp lực</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Dầu Brent</div>
+        <div class="value neu">~$72</div>
+        <div class="change up">▲ +0.7% (29/6)</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Vàng</div>
+        <div class="value dn">Giảm</div>
+        <div class="change dn">▼ Lãi suất cao hơn</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Khối ngoại</div>
+        <div class="value dn">-800 tỷ</div>
+        <div class="change dn">▼ Bán ròng (29/6)</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Nikkei 225</div>
+        <div class="value up">+1.11%</div>
+        <div class="change up">▲ Sáng 30/6</div>
+      </div>
+    </div>
   </div>
 
-  <!-- STAT CARDS -->
-  <div class="stat-grid">
-    <div class="stat-card">
-      <div class="name">VN-Index</div>
-      <div class="value neutral">N/A</div>
-      <div class="change neutral">— dữ liệu trống</div>
+  <!-- THẾ GIỚI -->
+  <div class="section">
+    <h2>§ 02 · Qua đêm — Toàn cầu</h2>
+    <div class="item">
+      <div class="title">🇺🇸 Mỹ: Dow Jones vượt 52.000 — kỷ lục lịch sử</div>
+      <div class="desc">Phiên 29/06, Dow Jones Industrial Average lần đầu đóng cửa trên 52.000 điểm — cột mốc chưa từng có — nhờ cổ phiếu Alphabet chính thức được bổ sung vào chỉ số. Nasdaq tăng hơn 2%, kết thúc chuỗi giảm liên tiếp, được hỗ trợ bởi kỳ vọng thỏa thuận hòa bình Mỹ–Iran giảm lo ngại địa chính trị. WSJ dẫn nhận định nhiều nhà phân tích cho rằng biên lợi nhuận doanh nghiệp Mỹ đang cao hơn mức trung bình nhiều ngành, bảo trợ cho mặt bằng định giá.</div>
     </div>
-    <div class="stat-card">
-      <div class="name">Thanh khoản</div>
-      <div class="value neutral">N/A</div>
-      <div class="change neutral">— dữ liệu trống</div>
+    <div class="arrow">→ Tác động VN: Đà tăng mạnh của chứng khoán Mỹ và tín hiệu hòa dịu địa chính trị là yếu tố hỗ trợ tâm lý cho phiên sáng 30/06 tại Việt Nam.</div>
+    <div class="item">
+      <div class="title">🌏 Châu Á sáng 30/06: Nikkei +1.11%, PMI Trung Quốc hỗ trợ</div>
+      <div class="desc">Nikkei 225 tăng 1.11% trong phiên sáng, trong khi chỉ số PMI chế tạo của Trung Quốc công bố tích cực giúp thị trường châu Á nhìn chung khởi sắc. STOXX 600 châu Âu đang trên đà ghi nhận quý tăng mạnh nhất hơn 5 năm nhờ làn sóng AI. Trái phiếu Eurozone giảm nhẹ lợi suất.</div>
     </div>
-    <div class="stat-card">
-      <div class="name">Khối ngoại</div>
-      <div class="value neutral">N/A</div>
-      <div class="change neutral">— dữ liệu trống</div>
+    <div class="item">
+      <div class="title">🇯🇵 JPY chạm đáy 40 năm — Bitcoin chịu áp lực</div>
+      <div class="desc">Đồng Yên Nhật chạm mức yếu nhất 40 năm so với USD trong sáng 30/06, tạo áp lực lên Bitcoin qua kênh carry trade. Trung Quốc mở rộng hạn chế xuất khẩu sang Nhật Bản, đưa thêm 20 thực thể (Mitsubishi Electric, Mitsubishi Heavy, Komatsu...) vào danh sách kiểm soát xuất khẩu.</div>
     </div>
-    <div class="stat-card">
-      <div class="name">S&amp;P 500</div>
-      <div class="value neutral">N/A</div>
-      <div class="change neutral">— dữ liệu trống</div>
-    </div>
-    <div class="stat-card">
-      <div class="name">Vàng (XAU)</div>
-      <div class="value neutral">N/A</div>
-      <div class="change neutral">— dữ liệu trống</div>
-    </div>
-    <div class="stat-card">
-      <div class="name">Bitcoin</div>
-      <div class="value neutral">N/A</div>
-      <div class="change neutral">— dữ liệu trống</div>
-    </div>
-    <div class="stat-card">
-      <div class="name">DXY (USD)</div>
-      <div class="value neutral">N/A</div>
-      <div class="change neutral">— dữ liệu trống</div>
-    </div>
-    <div class="stat-card">
-      <div class="name">Dầu WTI</div>
-      <div class="value neutral">N/A</div>
-      <div class="change neutral">— dữ liệu trống</div>
-    </div>
+    <div class="arrow">→ Tác động: Căng thẳng Trung-Nhật leo thang tạo thêm bất ổn địa chính trị; Canada đang tận dụng để mở rộng quan hệ với Tokyo trong chuỗi cung ứng khoáng sản.</div>
   </div>
 
-  <!-- GLOBAL -->
+  <!-- VÀNG & HÀNG HÓA -->
   <div class="section">
-    <div class="section-label">§ 02 · Qua đêm — Toàn cầu</div>
-    <h2>Chứng khoán Mỹ &amp; Châu Á</h2>
-    <p>Không có cập nhật đáng chú ý trong khung giờ này. Dữ liệu về các chỉ số Dow Jones, S&amp;P 500, Nasdaq, Nikkei 225, Hang Seng hay CSI 300 không được cung cấp trong nguồn tin đầu vào của bản tin hôm nay.</p>
-    <div class="impact amber">→ Tác động: Nhà đầu tư cần theo dõi trực tiếp các kênh như Bloomberg, Reuters, hoặc bảng giá thời gian thực để cập nhật diễn biến qua đêm trước phiên giao dịch.</div>
-  </div>
-
-  <!-- GOLD & COMMODITIES -->
-  <div class="section">
-    <div class="section-label">§ 03 · Vàng &amp; Hàng hóa</div>
-    <h2>Vàng, Dầu, Kim loại</h2>
-    <p>Không có cập nhật đáng chú ý trong khung giờ này. Không có dữ liệu về giá vàng thế giới (XAU/USD), vàng SJC trong nước, dầu thô WTI/Brent, đồng hay các hàng hóa nông sản.</p>
-    <div class="impact amber">→ Tác động: Giá hàng hóa thế giới ảnh hưởng trực tiếp đến nhóm cổ phiếu năng lượng, vật liệu cơ bản và xuất khẩu. Thiếu dữ liệu khiến đánh giá rủi ro/cơ hội nhóm này bị hạn chế.</div>
+    <h2>§ 03 · Vàng & Hàng hóa</h2>
+    <div class="item">
+      <div class="title">🪙 Vàng: Giảm mạnh vì kỳ vọng lãi suất cao hơn lâu hơn</div>
+      <div class="desc">Vàng quốc tế tiếp tục sụt giá khi thị trường định giá khả năng Fed duy trì lãi suất ở mức cao lâu hơn dự kiến. Báo cáo việc làm phi nông nghiệp (NFP) tháng 6 của Mỹ — dự kiến công bố cuối tuần — sẽ là chất xúc tác quyết định xu hướng tiếp theo. Giới phân tích thiên về thận trọng trước sự kiện này.</div>
+    </div>
+    <div class="arrow">→ VN: Bộ Tài chính xác nhận chưa thu thuế chuyển nhượng vàng miếng từ 1/7/2026 — thông tin đang lưu hành rộng rãi về mức thuế 0.1% là chưa chính xác. Thị trường vàng trong nước ít chịu tác động pháp lý trực tiếp trong giai đoạn này.</div>
+    <div class="item">
+      <div class="title">🛢️ Dầu thô: ING nhận định "giá đã giảm quá sâu"</div>
+      <div class="desc">Dầu Brent hồi phục nhẹ lên ~72.5 USD/thùng sau khi rơi về vùng tiền chiến tranh Hormuz ~70 USD. Ngân hàng ING cho rằng giá đã phản ánh quá mức phần bù rủi ro địa chính trị. Trump kêu gọi các trạm xăng hạ giá ngay lập tức. Dự báo CafeF: dầu có thể phục hồi vùng 88–95 USD/thùng trong Q3 và 95–104 USD trong Q4/2026 nếu nguồn cung tiếp tục bị thắt chặt.</div>
+    </div>
+    <div class="arrow">→ Tác động VN: Nhóm dầu khí (GAS, PVS, BSR) có thể hưởng lợi nếu kịch bản phục hồi giá dầu thành hiện thực trong H2/2026.</div>
+    <div class="item">
+      <div class="title">⚡ Năng lượng & AI: Cuộc khủng hoảng điện toàn cầu</div>
+      <div class="desc">Khủng hoảng eo biển Hormuz đã thúc đẩy Đông Nam Á đẩy nhanh chuyển đổi sang năng lượng tái tạo — Philippines trở thành nước mua tấm pin mặt trời nhiều nhất thế giới. Nhu cầu điện toàn cầu cho AI và tiền điện tử có thể tăng gấp 10 lần vào 2030, đặt áp lực khổng lồ lên hạ tầng lưới điện.</div>
+    </div>
   </div>
 
   <!-- CRYPTO -->
   <div class="section">
-    <div class="section-label">§ 04 · Tiền điện tử</div>
-    <h2>Crypto — Bitcoin &amp; Altcoin</h2>
-    <p>Không có cập nhật đáng chú ý trong khung giờ này. Không có dữ liệu về Bitcoin (BTC), Ethereum (ETH) hay toàn thị trường crypto trong nguồn được cung cấp.</p>
-    <div class="impact amber">→ Tác động: Diễn biến crypto thường tác động gián tiếp đến tâm lý nhà đầu tư với khẩu vị rủi ro cao, nhưng không có số liệu để đánh giá trong kỳ này.</div>
+    <h2>§ 04 · Tiền điện tử (Crypto)</h2>
+    <div class="item">
+      <div class="title">₿ Bitcoin: Chật vật dưới 60.000 USD, put-call ratio cao nhất 1 năm</div>
+      <div class="desc">Bitcoin tiếp tục giao dịch dưới ngưỡng tâm lý 60.000 USD, trong bối cảnh Strategy (MicroStrategy) công bố kế hoạch bán ra một phần Bitcoin — từ bỏ triết lý "không bao giờ bán BTC". BlackRock's IBIT ghi nhận dòng tiền rút ròng 300 triệu USD. Tỷ lệ put/call đạt đỉnh 1 năm — phe gấu chuẩn bị cho kịch bản giảm tiếp về vùng 55.000 USD.</div>
+    </div>
+    <div class="arrow">→ Tác động: Áp lực từ Strategy và dòng tiền ETF rút ra tạo môi trường bất lợi ngắn hạn. Các quỹ tài sản quốc gia vẫn xem đây là "chiết khấu để vào hàng" theo CEO MidChains.</div>
+    <div class="item">
+      <div class="title">🌍 Pháp lý: MiCA deadline, Anh FCA 2027, Clarity Act Mỹ</div>
+      <div class="desc">Hạn chót MiCA (EU) tạo làn sóng dịch chuyển: Dubai kỳ vọng hút thêm nhiều công ty crypto; ước tính 10 triệu người dùng EU có thể mất nền tảng giao dịch. Coinbase, Kraken, OKX đang tích cực giành lấy người dùng bị ảnh hưởng. Thượng viện Mỹ đẩy mạnh thông qua Clarity Act vào tháng 7. Anh công bố khung pháp lý cuối cùng với deadline cấp phép FCA năm 2027.</div>
+    </div>
+    <div class="item">
+      <div class="title">🏦 Tổ chức hóa: BNY thêm USDC, ARK mua thêm 43.5 triệu USD</div>
+      <div class="desc">BNY Mellon bổ sung chức năng tạo/đổi USDC trực tiếp trên nền tảng lưu ký tổ chức. ARK Invest của Cathie Wood mua thêm 43.5 triệu USD cổ phiếu liên quan crypto (chủ yếu Coinbase và Circle) trong đợt thị trường điều chỉnh. JPMorgan mở rộng mạng lưới thanh toán blockchain xuyên biên giới.</div>
+    </div>
   </div>
 
-  <!-- MACRO -->
+  <!-- VĨ MÔ -->
   <div class="section">
-    <div class="section-label">§ 05 · Vĩ mô &amp; Thời sự</div>
-    <h2>Trong nước &amp; Quốc tế</h2>
-    <p>Không có cập nhật đáng chú ý trong khung giờ này. Không có tin về chính sách tiền tệ, lãi suất, tỷ giá, chính sách thương mại quốc tế hay các sự kiện địa chính trị trong dữ liệu đầu vào.</p>
-    <p>Bối cảnh chung cần lưu ý: Cuối quý II/2026 thường là thời điểm các cơ quan thống kê công bố số liệu kinh tế tổng hợp (GDP, CPI, xuất nhập khẩu). Nhà đầu tư nên theo dõi lịch công bố số liệu từ Tổng cục Thống kê (GSO) và các bộ ngành liên quan.</p>
-    <div class="impact amber">→ VN: Thiếu dữ liệu vĩ mô đầu vào khiến không thể định lượng tác động lên định giá thị trường hay kỳ vọng dòng tiền trong phiên hôm nay.</div>
+    <h2>§ 05 · Vĩ mô & Thời sự</h2>
+    <div class="item">
+      <div class="title">🇻🇳 Luật Thuế TNCN mới hiệu lực từ 1/7/2026</div>
+      <div class="desc">Luật Thuế thu nhập cá nhân 2025 chính thức có hiệu lực từ ngày 1/7, mang lại thay đổi quan trọng: thu nhập làm thêm giờ, làm đêm được miễn thuế theo quy định mới; đồng thời 21 khoản thu nhập khác được miễn thuế. Bộ Tài chính nhấn mạnh chưa áp thuế chuyển nhượng vàng miếng trong giai đoạn này.</div>
+    </div>
+    <div class="item">
+      <div class="title">🏗️ Hà Nội: Quy hoạch 18 tuyến metro ~1.000km và "chùm đô thị hướng tâm"</div>
+      <div class="desc">Quy hoạch Hà Nội tầm nhìn 100 năm xác định 18 tuyến đường sắt đô thị dài gần 1.000km, hàng trăm khu TOD, và xác định Thái Nguyên, Bắc Ninh, Hưng Yên, Hải Phòng là các "đô thị vệ tinh" liên kết vùng. Tổng nhu cầu đầu tư 5 tuyến metro ưu tiên ước tính hơn 1,3 triệu tỷ đồng.</div>
+    </div>
+    <div class="arrow">→ Tác động: Hạ tầng giao thông quy mô lớn tạo động lực dài hạn cho các DN xây dựng, vật liệu, BĐS vùng ven.</div>
+    <div class="item">
+      <div class="title">💰 Tín dụng TP.HCM & NHNN bơm ròng</div>
+      <div class="desc">6 tháng đầu năm, các ngân hàng tại TP.HCM giải ngân khoảng 270.000 tỷ đồng, tăng 6,5% so với cuối 2025. NHNN đảo chiều bơm ròng gần 4.000 tỷ đồng trong tuần 22–26/06. Cơ chế đặc biệt cho 18 dự án trọng điểm của Vingroup, Sun Group và Masterise tiếp tục là chủ đề tranh luận về rủi ro phân tầng tín dụng.</div>
+    </div>
+    <div class="item">
+      <div class="title">🌐 Chính sách FDI: Chuyển trọng tâm sang chất lượng</div>
+      <div class="desc">Phó Thủ tướng Thường trực khẳng định Việt Nam chuyển từ chiến lược thu hút nhiều FDI sang ưu tiên dự án công nghệ tiên tiến, đổi mới sáng tạo. Mục tiêu kim ngạch thương mại Việt–Hàn hướng tới 150 tỷ USD.</div>
+    </div>
+    <div class="item">
+      <div class="title">🚢 Cước vận tải biển tăng mạnh nhất 2 năm</div>
+      <div class="desc">Giá cước container toàn cầu đang tăng vọt đến mức cao nhất kể từ khủng hoảng Biển Đỏ 2 năm trước, trong bối cảnh thị trường lo ngại thuế quan Mỹ mới có thể kích thích doanh nghiệp nhập hàng trước thời hạn.</div>
+    </div>
+    <div class="arrow">→ VN: Nhóm vận tải biển (HAH, GMD, PVT) có thể được hưởng lợi từ đà tăng cước trong ngắn hạn.</div>
   </div>
 
-  <!-- REAL ESTATE -->
+  <!-- BĐS -->
   <div class="section">
-    <div class="section-label">§ 06 · Bất động sản</div>
-    <h2>Thị trường BĐS</h2>
-    <p>Không có cập nhật đáng chú ý trong khung giờ này. Không có dữ liệu về giao dịch bất động sản, chính sách tín dụng BĐS, hay thông tin về các doanh nghiệp địa ốc niêm yết trong nguồn được cung cấp.</p>
-    <div class="impact amber">→ Tác động: Nhóm cổ phiếu BĐS và ngân hàng liên quan đến tín dụng bất động sản cần theo dõi riêng từ các báo cáo chuyên ngành.</div>
+    <h2>§ 06 · Bất động sản</h2>
+    <div class="item">
+      <div class="title">PDR vay MB 8.835 tỷ cho Lotte Eco Smart City Thủ Thiêm</div>
+      <div class="desc">Phát Đạt (PDR) ký hợp đồng vay tối đa 8.835 tỷ đồng từ MB để tham gia đầu tư dự án Lotte Eco Smart City Thủ Thiêm — thương vụ lớn nhất của công ty từ trước đến nay, phản ánh kỳ vọng mạnh vào thị trường BĐS Thủ Thiêm.</div>
+    </div>
+    <div class="item">
+      <div class="title">TP.HCM khởi công Công viên Bến Nhà Rồng–Khánh Hội ~30.000 tỷ</div>
+      <div class="desc">Ngày 1/7, TP.HCM khởi công dự án Công viên Văn hóa Bến Nhà Rồng–Khánh Hội quy mô hơn 150ha trên "đất vàng" trung tâm, kết hợp không gian công cộng, thương mại ngầm và hành lang ven sông Sài Gòn.</div>
+    </div>
+    <div class="item">
+      <div class="title">Siêu sân bay Gia Bình (Bắc Ninh): 1.400 hộ bàn giao mặt bằng trong 38 ngày</div>
+      <div class="desc">Dự án sân bay Gia Bình đạt mốc bàn giao mặt bằng nhanh bất ngờ. Gelex Infra (GEL) cập nhật khánh thành giai đoạn 1 vào nửa đầu 2027, vận hành thương mại từ cuối 2028; lợi nhuận H1/2026 ước ~980 tỷ đồng, bằng 85% kế hoạch năm.</div>
+    </div>
+    <div class="item">
+      <div class="title">Hàng loạt dự án NOXH lớn triển khai</div>
+      <div class="desc">PVMachino lập pháp nhân mới đầu tư NOXH 7.400 tỷ tại Đông Anh (Hà Nội); Hưng Thịnh Incons tổ chức ĐHĐCĐ thông qua xây dựng NOXH đầu tiên và kế hoạch tăng vốn; Becamex IJC phê duyệt dự án chung cư Calista 2.300 tỷ với 1.400 căn hộ tại Bình Dương.</div>
+    </div>
+    <div class="arrow">→ Tác động: Sóng NOXH và hạ tầng lớn tiếp tục là chủ đề nền dài hạn, hỗ trợ nhóm xây dựng, vật liệu, BĐS khu công nghiệp vùng Bắc.</div>
   </div>
 
-  <!-- DÒNG TIỀN -->
+  <!-- DÒNG TIỀN & KHỐI NGOẠI -->
   <div class="section">
-    <div class="section-label">§ 07 · Dòng tiền &amp; Vị thế</div>
-    <h2>Khối ngoại &amp; Tự doanh</h2>
-    <p>Không có cập nhật đáng chú ý trong khung giờ này. Không có dữ liệu về giao dịch của khối ngoại (NĐTNN), tự doanh công ty chứng khoán, hay các quỹ ETF trong nguồn cung cấp.</p>
-    <div class="impact amber">→ VN: Dữ liệu dòng tiền khối ngoại thường là tín hiệu dẫn dắt quan trọng. Nhà đầu tư có thể tham khảo số liệu từ HoSE, HNX hoặc các công ty chứng khoán sau khi phiên đóng cửa.</div>
+    <h2>§ 07 · Dòng tiền & Vị thế</h2>
+    <div class="item">
+      <div class="title">Khối ngoại: Bán ròng gần 800 tỷ phiên 29/06</div>
+      <div class="desc">Khối ngoại bán ròng 800 tỷ đồng trong phiên 29/06, riêng giao dịch khớp lệnh bán ròng 787,6 tỷ đồng, tập trung xả mạnh hai cổ phiếu được xem là "siêu hot" (chưa được nêu tên cụ thể trong nguồn). Tính từ đầu năm, khối ngoại đã bán ròng gần 3 tỷ USD — mức cao đáng chú ý.</div>
+    </div>
+    <div class="arrow">→ Tác động: Quỹ ngoại nhận định Việt Nam tích cực về dài hạn nhưng ngắn hạn vẫn chọn lọc kỹ vì nhiều cơ hội hấp dẫn hơn ở thị trường khác. Áp lực bán ròng liên tục là rủi ro cần theo dõi, đặc biệt trong tuần chốt quý.</div>
+    <div class="item">
+      <div class="title">ETF rà soát VN30: TPB, PLX có thể bị loại; MCH, TCX được thêm vào</div>
+      <div class="desc">MBS dự báo trong kỳ rà soát quý 2/2026 của bộ chỉ số VN30 (hiệu lực từ 3/8/2026): TPB và PLX bị loại, MCH và TCX được bổ sung. Các quỹ ETF quy mô ~10.000 tỷ đồng sẽ phải cơ cấu lại danh mục tương ứng.</div>
+    </div>
+    <div class="arrow">→ Tác động: MCH và TCX có thể nhận dòng tiền mua kỹ thuật từ các quỹ ETF trước ngày hiệu lực 3/8. TPB và PLX ngược lại có thể chịu áp lực bán.</div>
   </div>
 
-  <!-- VN MARKET -->
+  <!-- TTCK TRONG NƯỚC -->
   <div class="section">
-    <div class="section-label">§ 08 · Trong nước — Tín hiệu TTCK VN</div>
-    <h2>VN-Index &amp; Cổ phiếu nổi bật</h2>
-    <p>Không có cập nhật đáng chú ý trong khung giờ này. Không có dữ liệu cụ thể về diễn biến VN-Index, HNX-Index, UPCoM-Index, thanh khoản hay các cổ phiếu tác động mạnh đến chỉ số trong nguồn được cung cấp.</p>
-    <p>Bối cảnh kỹ thuật: Đây là phiên cuối quý — hiệu ứng <em>window dressing</em> (các quỹ mua thêm cổ phiếu đang tăng mạnh để làm đẹp danh mục cuối kỳ) thường khiến thị trường có biến động bất thường về thanh khoản và giá vào cuối phiên chiều.</p>
-    <div class="impact amber">→ VN: Nhà đầu tư nên thận trọng với biến động giá bất thường vào cuối phiên ngày cuối quý — đây thường là hiện tượng kỹ thuật ngắn hạn, không phản ánh xu hướng trung dài hạn.</div>
+    <h2>§ 08 · Trong nước — Tín hiệu thị trường</h2>
+    <div class="item">
+      <div class="title">VN-Index giảm ~17 điểm phiên 29/06, nhưng nội tại tích cực</div>
+      <div class="desc">Chỉ số bị kéo xuống bởi nhóm trụ lớn (VIC, VHM đảo chiều), tuy nhiên độ rộng thị trường tốt — tiền nóng phân hóa sang cổ phiếu vừa và nhỏ. Nhóm chứng khoán tăng mạnh nổi bật. Tâm lý được đánh giá là "khá vững" dù thanh khoản chưa cao.</div>
+    </div>
+    <div class="item">
+      <div class="title">Lợi nhuận DN quý 2: Chậm lại nhưng vẫn cao, ngân hàng dẫn dắt</div>
+      <div class="desc">Ước tính tăng trưởng lợi nhuận Q2/2026 chậm lại so với Q1 (+54% so cùng kỳ) nhưng vẫn cao hơn đáng kể so với Q1–Q3/2025. Nhóm ngân hàng dẫn dắt toàn thị trường; nhóm bán lẻ tiêu dùng ước tính lợi nhuận tăng 30–60% nhờ tiêu dùng nội địa phục hồi.</div>
+    </div>
+    <div class="item">
+      <div class="title">HOSE cập nhật danh sách 65 mã bị cắt margin cuối tháng 6</div>
+      <div class="desc">65 mã cổ phiếu trên HOSE bị đưa vào danh sách không được dùng đòn bẩy tài chính theo đợt cập nhật định kỳ. Nhà đầu tư sử dụng margin cần kiểm tra danh mục trước khi tham chiếu.</div>
+    </div>
+    <div class="item">
+      <div class="title">Dragon Capital: Nâng hạng là "điều kiện cần, chưa đủ"</div>
+      <div class="desc">Chủ tịch Dragon Capital kiến nghị 5 giải pháp thu hút vốn ngoại có chất lượng, nhấn mạnh thị trường Việt Nam cần xây dựng "câu chuyện riêng" ngoài yếu tố nâng hạng. CEO KIM Việt Nam đồng quan điểm, cho rằng các quỹ ngoại thực sự đã theo dõi Việt Nam từ trước — câu chuyện nâng hạng FTSE chỉ là chất xúc tác chứ không phải quyết định.</div>
+    </div>
+    <div class="item">
+      <div class="title">NCB hoàn thành tăng vốn lịch sử: Vốn điều lệ lên 29.280 tỷ</div>
+      <div class="desc">NCB hoàn tất phát hành riêng lẻ 1 tỷ cổ phiếu, nâng vốn lên 29.280 tỷ đồng — mức tăng vốn lớn nhất lịch sử ngân hàng, hoàn thành sớm hơn 3 năm so với lộ trình PACCL.</div>
+    </div>
   </div>
 
-  <!-- CALENDAR -->
+  <!-- LỊCH SỰ KIỆN -->
   <div class="section">
-    <div class="section-label">§ 09 · Lịch sự kiện sắp tới</div>
-    <h2>Các sự kiện cần theo dõi</h2>
-    <p>Không có dữ liệu sự kiện cụ thể được cung cấp. Tuy nhiên, trong bối cảnh đầu quý III/2026, các sự kiện thường quy có thể diễn ra bao gồm: công bố số liệu kinh tế vĩ mô Quý II từ GSO, họp định kỳ Ngân hàng Nhà nước về lãi suất điều hành, mùa ĐHCĐ thường niên kết thúc và mùa kết quả kinh doanh Quý II bắt đầu từ giữa tháng 7/2026.</p>
-    <div class="impact amber">→ Tác động: Nhà đầu tư nên theo dõi lịch công bố KQKD Quý II/2026 — đây thường là chất xúc tác quan trọng nhất cho diễn biến thị trường trong tháng 7.</div>
+    <h2>§ 09 · Lịch sự kiện sắp tới</h2>
+    <div class="item">
+      <div class="title">01/07/2026</div>
+      <div class="desc">• Luật Thuế TNCN 2025 có hiệu lực — nhiều quy định mới về thu nhập miễn thuế/chịu thuế<br>• TP.HCM khởi công Công viên Bến Nhà Rồng–Khánh Hội<br>• Quy định mới giao thông đường bộ và quy định máy bay có hiệu lực<br>• Australia: Crypto travel rule có hiệu lực</div>
+    </div>
+    <div class="item">
+      <div class="title">02/07/2026</div>
+      <div class="desc">• Kỷ niệm 50 năm TP.HCM mang tên Chủ tịch Hồ Chí Minh — nhiều hoạt động văn hóa, kỷ niệm lớn tại TP.HCM</div>
+    </div>
+    <div class="item">
+      <div class="title">03/08/2026 (hiệu lực)</div>
+      <div class="desc">• Rà soát VN30 quý 2/2026 có hiệu lực: dự kiến MCH, TCX vào; TPB, PLX ra</div>
+    </div>
+    <div class="item">
+      <div class="title">Cuối tuần (tháng 7)</div>
+      <div class="desc">• Báo cáo việc làm phi nông nghiệp (NFP) tháng 6 của Mỹ — yếu tố quyết định đường đi vàng và chính sách Fed</div>
+    </div>
   </div>
 
   <!-- GÓC NHÌN -->
   <div class="section">
-    <div class="section-label">§ 10 · Góc nhìn &amp; Chiến lược</div>
-    <h2>Đánh giá Bull / Bear — Cuối Q2/2026</h2>
-    <p style="font-size:12px;color:var(--gray);margin-bottom:12px;"><em>Lưu ý: Phần này chỉ nêu các góc nhìn phân tích đối lập, KHÔNG phải khuyến nghị giao dịch / đầu tư.</em></p>
-
+    <h2>§ 10 · Góc nhìn & Chiến lược</h2>
     <div class="bb-grid">
-      <div class="bb-card bull">
-        <h3 style="color:#16a34a">🟢 Luận điểm Tích cực (Bull)</h3>
-        <ul>
-          <li>Cuối quý thường có hiệu ứng window dressing hỗ trợ giá.</li>
-          <li>Dòng tiền tái phân bổ đầu quý III có thể tạo lực cầu mới.</li>
-          <li>Mùa KQKD Q2 sắp tới là chất xúc tác tiềm năng nếu kết quả khả quan.</li>
-          <li>Lãi suất thấp duy trì môi trường thuận lợi cho tài sản rủi ro.</li>
+      <div class="bull-box">
+        <div class="bb-title bull">▲ BULL — Luận điểm lạc quan</div>
+        <ul class="bb-list">
+          <li>Dow Jones lập kỷ lục, Nasdaq phục hồi mạnh — tín hiệu risk-on toàn cầu</li>
+          <li>Độ rộng TTCK VN tốt dù chỉ số giảm — tiền nóng vẫn hoạt động</li>
+          <li>Lợi nhuận DN quý 2 vẫn tăng trưởng 2 chữ số, ngân hàng dẫn dắt</li>
+          <li>Tiêu dùng nội địa phục hồi mạnh: nhóm bán lẻ tăng lợi nhuận 30–60%</li>
+          <li>Cú hích hạ tầng lớn: metro Hà Nội, sân bay Gia Bình, NOXH bùng nổ</li>
+          <li>Cước vận tải biển tăng mạnh — hỗ trợ nhóm logistics, vận tải</li>
+          <li>Luật Thuế TNCN mới giảm gánh nặng cho người lao động — kích tiêu dùng</li>
         </ul>
       </div>
-      <div class="bb-card bear">
-        <h3 style="color:#dc2626">🔴 Luận điểm Thận trọng (Bear)</h3>
-        <ul>
-          <li>Thiếu thông tin là rủi ro bản thân — thị trường có thể bất ngờ với tin xấu.</li>
-          <li>Áp lực chốt lời cuối quý có thể tạo biến động tiêu cực ngắn hạn.</li>
-          <li>Bất ổn vĩ mô toàn cầu (địa chính trị, lạm phát) chưa có dữ liệu cập nhật.</li>
-          <li>Thanh khoản có thể mỏng vào cuối phiên do tái cơ cấu danh mục.</li>
+      <div class="bear-box">
+        <div class="bb-title bear">▼ BEAR — Luận điểm thận trọng</div>
+        <ul class="bb-list">
+          <li>Khối ngoại bán ròng gần 3 tỷ USD từ đầu năm — áp lực dai dẳng</li>
+          <li>Bitcoin áp lực dưới 60K, ETF rút ròng, put-call ratio cao nhất 1 năm</li>
+          <li>Vàng sụt giá — tín hiệu Fed "higher for longer" ảnh hưởng định giá tài sản</li>
+          <li>Nhóm trụ VIC, VHM đảo chiều tiêu cực — rủi ro kéo chỉ số</li>
+          <li>Mặt bằng lãi suất thấp kỷ lục khó quay lại ngắn hạn</li>
+          <li>Strategy bán BTC — rủi ro hiệu ứng tâm lý crypto toàn cầu</li>
+          <li>Địa chính trị: Trung–Nhật leo thang, Hormuz chưa hoàn toàn ổn định</li>
         </ul>
       </div>
     </div>
-
-    <div class="desk-view">
-      <strong>🖥 Đánh giá của Desk:</strong> Phiên 30.06.2026 — ngày cuối Quý II — mang tính chất kỹ thuật nhiều hơn là xu hướng. Không có dữ liệu thực tế nào được cung cấp cho bản tin hôm nay, khiến desk không thể đưa ra đánh giá định lượng. Cả hai chiều bull và bear đều có lý lẽ hợp lý trong bối cảnh chuyển giao quý. <strong>Desk khuyến khích nhà đầu tư chờ dữ liệu thực tế từ phiên giao dịch và không đưa ra quyết định dựa trên bản tin thiếu dữ liệu này.</strong> Đây KHÔNG phải khuyến nghị giao dịch / đầu tư.
-    </div>
+    <p><strong>Đánh giá của desk:</strong> Bức tranh toàn cầu đang phân hóa rõ nét — chứng khoán Mỹ và châu Âu lên đỉnh trong khi Bitcoin và vàng chịu áp lực từ viễn cảnh lãi suất cao kéo dài. Tại Việt Nam, thị trường đang ở trạng thái "tâm lý ổn định, thanh khoản có giới hạn" — độ rộng tốt nhưng thiếu một động lực đủ mạnh từ nhóm trụ để kéo VN-Index bứt phá. Câu chuyện nâng hạng, hạ tầng và lợi nhuận Q2 vẫn là nền tảng hỗ trợ dài hạn, song rủi ro bán ròng ngoại và sức ép từ thị trường tài chính toàn cầu (lãi suất, crypto) cần được theo dõi cẩn thận. Tháng 7 mở đầu với nhiều sự kiện pháp lý lớn trong và ngoài nước.</p>
+    <p class="disclaimer">⚠️ Bản tin này chỉ mang tính tổng hợp thông tin và phân tích tham khảo. Không phải khuyến nghị giao dịch/đầu tư. Nhà đầu tư cần tự chịu trách nhiệm với quyết định của mình.</p>
   </div>
 
-  <!-- SOURCES -->
+  <!-- NGUỒN -->
   <div class="sources">
-    <h3>📋 Nguồn tham khảo</h3>
-    <p>Bản tin kỳ này <strong>không có dữ liệu tin tức thô được cung cấp</strong> làm đầu vào. Do đó, không có nguồn tham khảo cụ thể nào được liệt kê. Toàn bộ nội dung bên trên phản ánh bối cảnh chung và nhận định phương pháp luận, không dựa trên bài báo hay báo cáo cụ thể nào. Để có thông tin chính xác, vui lòng tham khảo trực tiếp: HoSE (hsx.vn), HNX (hnx.vn), Ngân hàng Nhà nước (sbv.gov.vn), Bloomberg, Reuters, và các công ty chứng khoán.</p>
+    <h3>📎 NGUỒN THAM KHẢO</h3>
+    <ul>
+      <li><strong>Vietstock - Doanh nghiệp niêm yết:</strong> TEG thoái vốn Xây dựng 108 · KOSY lợi nhuận kỷ lục · PDR vay MB · GEL sân bay Gia Bình · AGG ĐHĐCĐ · VKC may mặc · PVMachino NOXH · IJC Calista — <a href="http://vietstock.vn" target="_blank">vietstock.vn</a></li>
+      <li><strong>VnEconomy - Chứng khoán:</strong> Nhóm CK tăng mạnh · ETF VN30 dự báo · Khối ngoại bán ròng 3 tỷ USD · Dow Jones kỷ lục · Cước vận tải biển · VN-Index giảm 17 điểm · Lợi nhuận DN Q2 · Bán lẻ Q2 — <a href="https://vneconomy.vn" target="_blank">vneconomy.vn</a></li>
+      <li><strong>CafeF - Chứng khoán:</strong> HOSE margin cuối tháng 6 · Thuế vàng miếng chưa áp · FPT ESOP · Dragon Capital 5 giải pháp · CEO KIM nâng hạng — <a href="https://cafef.vn" target="_blank">cafef.vn</a></li>
+      <li><strong>Vietstock - Chứng khoán thế giới:</strong> <a href="http://vietstock.vn/2026/06/dow-jones-lan-dau-vuot-52000-diem-nho-thanh-vien-moi-alphabet-773-1460130.htm" target="_blank">Dow Jones vượt 52.000</a> · OpenAI IPO 1 ngàn tỷ · JPMorgan chuyển giao quyền lực</li>
+      <li><strong>WSJ Markets:</strong> <a href="https://www.wsj.com/livecoverage/stock-market-today-dow-sp-500-nasdaq-06-29-2026" target="_blank">Stock Market News 29/6</a> · <a href="https://www.wsj.com/finance/currencies/strategy-abandons-never-sell-bitcoin-mantra-in-bid-to-outlast-crypto-winter-b36e4c2f" target="_blank">Strategy bán Bitcoin</a> · <a href="https://www.wsj.com/finance/stocks/why-wall-street-bulls-arent-worried-about-sky-high-stock-prices-79db9e16" target="_blank">Định giá Wall Street</a></li>
+      <li><strong>Investing.com:</strong> <a href="https://www.investing.com/news/stock-market-news/asian-stocks-mixed-as-china-pmi-offsets-caution-ahead-of-us-jobs-data-4766836" target="_blank">Châu Á tăng PMI Trung Quốc</a> · <a href="https://www.investing.com/news/stock-market-news/europes-stoxx-600-on-track-for-biggest-quarterly-gain-in-over-five-yearson-ai-boost-4766946" target="_blank">STOXX 600 quý tốt nhất 5 năm</a> · <a href="https://www.investing.com/news/stock-market-news/japan-stocks-higher-at-close-of-trade-nikkei-225-up-111-4766933" target="_blank">Nikkei +1.11%</a></li>
+      <li><strong>CNBC Markets:</strong> <a href="https://www.cnbc.com/2026/06/29/china-japan-export-controls-watch-list-defense-entities.html" target="_blank">Trung Quốc mở rộng kiểm soát xuất khẩu sang Nhật</a></li>
+      <li><strong>OilPrice:</strong> <a href="https://oilprice.com/Latest-Energy-News/World-News/ING-Oil-Prices-Have-Overshot-To-The-Downside.html" target="_blank">ING: Giá dầu giảm quá sâu</a> · <a href="https://oilprice.com/Latest-Energy-News/World-News/Trump-Pressures-Gas-Stations-to-Slash-Prices-Immediately.html" target="_blank">Trump yêu cầu hạ giá xăng</a> · <a href="https://oilprice.com/Alternative-Energy/Solar-Energy/How-the-Hormuz-Crisis-Turned-Southeast-Asia-Into-a-Solar-Powerhouse.html" target="_blank">Đông Nam Á và năng lượng mặt trời</a></li>
+      <li><strong>CoinDesk:</strong> <a href="https://www.coindesk.com/markets/2026/06/30/bitcoin-under-pressure-below-usd60-000-as-japanese-yen-hits-40-year-low-against-the-u-s-dollar" target="_blank">Bitcoin dưới 60K - JPY đáy 40 năm</a> · <a href="https://www.coindesk.com/tech/2026/06/30/live-updates-blackrock-s-ibit-sheds-usd300-million-as-bitcoin-demand-dwindles" target="_blank">BlackRock IBIT -300 triệu USD</a></li>
+      <li><strong>Cointelegraph:</strong> <a href="https://cointelegraph.com/markets/bitcoin-put-call-ratio-hits-1-year-high-are-bears-preparing-for-drop-to-55k" target="_blank">BTC put-call ratio đỉnh 1 năm</a> · <a href="https://cointelegraph.com/news/uk-crypto-rules-2027-fca-authorization-deadline" target="_blank">UK crypto FCA 2027</a> · <a href="https://cointelegraph.com/news/coinbase-okx-kraken-eu-users-mica" target="_blank">Coinbase/Kraken/OKX hút user EU</a></li>
+      <li><strong>VnEconomy - Tài chính:</strong> <a href="https://vneconomy.vn/ncb-hoan-thanh-dot-tang-von-lon-nhat-bo-nhiem-2-pho-tong-giam-doc.htm" target="_blank">NCB tăng vốn lịch sử</a> · <a href="https://vneconomy.vn/vang-sut-gia-manh-vi-trien-vong-lai-suat-cao-hon-lau-hon.htm" target="_blank">Vàng sụt giá - lãi suất cao</a> · <a href="https://vneconomy.vn/tp-ho-chi-minh-giai-ngan-270000-ty-dong-von-tin-dung-tang-65-sau-6-thang.htm" target="_blank">Tín dụng TP.HCM +6.5%</a></li>
+      <li><strong>Vietstock - Vĩ mô:</strong> <a href="http://vietstock.vn/2026/06/lai-suat-thap-thanh-khoan-doi-dao-lieu-co-quay-tro-lai-trong-ngan-han-757-1459593.htm" target="_blank">Lãi suất thấp khó quay lại</a> · <a href="http://vietstock.vn/2026/06/mo-van-tin-dung-cho-du-an-trong-diem-dong-von-chay-ve-dau-co-phieu-nao-don-song-757-1459492.htm" target="_blank">Mở van tín dụng dự án trọng điểm</a></li>
+      <li><strong>CafeF - Vĩ mô:</strong> <a href="https://cafef.vn/pho-thu-tuong-thuong-truc-chuyen-tu-thu-hut-nhieu-fdi-sang-uu-tien-du-an-cong-nghe-tien-tien-1882606301023172.chn" target="_blank">FDI chất lượng cao</a> · <a href="https://cafef.vn/ha-noi-phat-trien-18-tuyen-duong-sat-do-thi-dai-gan-1000-km-trong-quy-hoach-moi-the-nao-18826063008361893.chn" target="_blank">18 tuyến metro Hà Nội</a> · <a href="https://cafef.vn/tat-ca-nguoi-lao-dong-tren-ca-nuoc-chu-y-tin-vui-rat-lon-ve-thue-ap-dung-tu-1-7-188260629195855642.chn" target="_blank">Luật Thuế TNCN 1/7</a></li>
+      <li><strong>CafeF - Bất động sản:</strong> <a href="https://cafef.vn/viet-nam-sap-xay-dung-cong-vien-lich-su-30000-ty-dong-tren-khu-dat-vang-trung-tam-tphcm-quy-mo-hon-150ha-188260630130608328.chn" target="_blank">Công viên Bến Nhà Rồng 30.000 tỷ</a> · <a href="https://cafef.vn/sieu-san-bay-lon-nhat-mien-bac-don-tin-vui-hon-1400-ho-dan-ban-giao-mat-bang-chi-sau-38-ngay-188260630064057448.chn" target="_blank">Sân bay Gia Bình mặt bằng</a></li>
+      <li><strong>Vietstock - Bất động sản:</strong> <a href="http://vietstock.vn/2026/06/bo-tai-chinh-chua-thu-thue-chuyen-nhuong-vang-mieng-tu-ngay-172026-758-1460280.htm" target="_blank">Bộ Tài chính: chưa thu thuế vàng miếng</a> · <a href="http://vietstock.vn/2026/06/nhnn-ban-hanh-ke-hoach-thuc-hien-chien-luoc-tai-chinh-toan-dien-2026-2030-757-1460265.htm" target="_blank">NHNN chiến lược tài chính toàn diện</a></li>
+    </ul>
   </div>
+
+  <p style="text-align:center;font-size:12px;color:#94a3b8;margin-top:20px;">© Bản tin TTCK tổng hợp tự động · 30/06/2026 · Chỉ mang tính tham khảo thông tin, không phải khuyến nghị đầu tư</p>
 
 </div>
-
-<!-- FOOTER -->
-<footer>
-  <p>© Bản tin TTCK · 30.06.2026 · Tài liệu chỉ mang tính tham khảo, KHÔNG phải khuyến nghị giao dịch / đầu tư.</p>
-  <p style="margin-top:4px;">Mọi quyết định đầu tư cần dựa trên phân tích độc lập và tham vấn chuyên gia tài chính có chứng chỉ.</p>
-</footer>
-
 </body>
 </html>
