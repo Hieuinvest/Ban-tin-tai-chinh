@@ -1,90 +1,273 @@
 <!DOCTYPE html>
-<html>
+<html lang="vi">
 <head>
-<meta charset='utf-8'>
-<title>Bản tin 2026-06-30</title>
-<style>body{font-family:Arial,sans-serif;background-color:#f4f6f9;padding:20px;} .container{max-width:700px;margin:0 auto;background:#fff;padding:30px;border-radius:8px;box-shadow:0 4px 6px rgba(0,0,0,0.05);}</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bản tin TTCK – 30.06.2026</title>
+<style>
+  :root {
+    --green: #16a34a;
+    --red: #dc2626;
+    --blue: #1d4ed8;
+    --gray: #6b7280;
+    --light: #f8fafc;
+    --border: #e2e8f0;
+    --card-bg: #ffffff;
+    --header-bg: #0f172a;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', Arial, sans-serif; background: var(--light); color: #1e293b; font-size: 15px; line-height: 1.7; }
+  a { color: var(--blue); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* NAV */
+  .topnav { background: var(--header-bg); padding: 10px 20px; display: flex; align-items: center; gap: 16px; }
+  .topnav a { color: #94a3b8; font-size: 13px; }
+  .topnav a:hover { color: #fff; }
+  .topnav .sep { color: #334155; }
+
+  /* HEADER */
+  .header { background: var(--header-bg); color: #fff; padding: 28px 24px 24px; border-bottom: 3px solid #2563eb; }
+  .header .label { font-size: 11px; font-weight: 700; letter-spacing: 2px; color: #60a5fa; text-transform: uppercase; margin-bottom: 8px; }
+  .header h1 { font-size: 1.55rem; font-weight: 800; line-height: 1.3; margin-bottom: 8px; }
+  .header .meta { font-size: 12px; color: #94a3b8; }
+  .header .disclaimer { margin-top: 10px; font-size: 11px; color: #f59e0b; background: rgba(245,158,11,0.12); padding: 6px 10px; border-radius: 4px; display: inline-block; }
+
+  /* CONTAINER */
+  .container { max-width: 860px; margin: 0 auto; padding: 24px 16px; }
+
+  /* STAT CARDS */
+  .stat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; margin: 20px 0; }
+  .stat-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 14px 12px; text-align: center; box-shadow: 0 1px 4px rgba(0,0,0,0.05); }
+  .stat-card .name { font-size: 11px; color: var(--gray); font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 4px; }
+  .stat-card .value { font-size: 1.15rem; font-weight: 800; }
+  .stat-card .change { font-size: 12px; margin-top: 2px; }
+  .up { color: var(--green); }
+  .down { color: var(--red); }
+  .neutral { color: var(--gray); }
+
+  /* SECTION */
+  .section { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 22px 24px; margin-bottom: 20px; box-shadow: 0 1px 4px rgba(0,0,0,0.04); }
+  .section-label { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #2563eb; margin-bottom: 4px; }
+  .section h2 { font-size: 1.1rem; font-weight: 800; margin-bottom: 14px; color: #0f172a; border-bottom: 1px solid var(--border); padding-bottom: 8px; }
+  .section p { margin-bottom: 10px; }
+  .section p:last-child { margin-bottom: 0; }
+  .impact { background: #f0fdf4; border-left: 3px solid var(--green); padding: 8px 12px; border-radius: 0 6px 6px 0; margin: 8px 0; font-size: 13.5px; color: #15803d; }
+  .impact.red { background: #fef2f2; border-left-color: var(--red); color: var(--red); }
+  .impact.amber { background: #fffbeb; border-left-color: #f59e0b; color: #92400e; }
+
+  /* BULL BEAR */
+  .bb-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 12px; }
+  .bb-card { border-radius: 8px; padding: 14px; }
+  .bull { background: #f0fdf4; border: 1px solid #bbf7d0; }
+  .bear { background: #fef2f2; border: 1px solid #fecaca; }
+  .bb-card h3 { font-size: 13px; font-weight: 800; margin-bottom: 8px; }
+  .bb-card ul { padding-left: 18px; font-size: 13px; }
+  .bb-card ul li { margin-bottom: 4px; }
+  .desk-view { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 14px; margin-top: 14px; font-size: 13.5px; }
+  .desk-view strong { color: #1d4ed8; }
+
+  /* SOURCES */
+  .sources { background: #f8fafc; border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-top: 20px; }
+  .sources h3 { font-size: 13px; font-weight: 700; color: var(--gray); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
+  .sources p { font-size: 12px; color: var(--gray); font-style: italic; }
+
+  /* FOOTER */
+  footer { text-align: center; font-size: 11px; color: #94a3b8; padding: 24px 16px; }
+
+  @media(max-width:540px) {
+    .header h1 { font-size: 1.2rem; }
+    .bb-grid { grid-template-columns: 1fr; }
+    .section { padding: 16px; }
+  }
+</style>
 </head>
 <body>
-<div class='container'>
-<div style="font-family: Arial, Helvetica, sans-serif; max-width: 900px; margin: 0 auto; background: #f4f6f9; padding: 24px; border-radius: 12px; color: #1a1a2e;">
 
-  <!-- HEADER -->
-  <div style="background: linear-gradient(135deg, #0f3460 0%, #16213e 60%, #1a1a2e 100%); border-radius: 12px; padding: 32px 28px 24px 28px; margin-bottom: 24px; box-shadow: 0 4px 24px rgba(15,52,96,0.18);">
-    <div style="font-size: 11px; letter-spacing: 3px; color: #e94560; text-transform: uppercase; font-weight: 700; margin-bottom: 8px;">📰 Bản Tin Tài Chính Tổng Hợp</div>
-    <h1 style="margin: 0 0 10px 0; font-size: 28px; font-weight: 900; color: #ffffff; line-height: 1.3;">Dow Jones Phá Đỉnh 52.000 Điểm, Tiền Nội Địa Xoay Vòng Cổ Phiếu Vừa & Nhỏ — Thị Trường Toàn Cầu Dậy Sóng</h1>
-    <div style="font-size: 13px; color: #a0aec0;">Thứ Ba, 01/07/2026 &nbsp;|&nbsp; Tổng hợp & Phân tích bởi AI Data Journalist &nbsp;|&nbsp; Nguồn: VnEconomy, VnExpress</div>
+<!-- NAV -->
+<nav class="topnav">
+  <a href="./index.html">← Trang chủ</a>
+  <span class="sep">|</span>
+  <a href="#">Bản tin 30.06.2026</a>
+</nav>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="container">
+    <div class="label">Bản tin TTCK · Research Note</div>
+    <h1>Cuối quý II/2026 — Không có dữ liệu thị trường cập nhật</h1>
+    <div class="meta">Thứ Ba, 30 tháng 6 năm 2026 · Phát hành: Sáng sớm (Giờ Việt Nam)</div>
+    <div class="disclaimer">⚠ Tài liệu này chỉ mang tính thông tin tổng hợp, KHÔNG phải khuyến nghị giao dịch / đầu tư.</div>
   </div>
-
-  <!-- CHỈ SỐ NHANH -->
-  <div style="background: #ffffff; border-radius: 12px; padding: 20px 24px; margin-bottom: 24px; box-shadow: 0 2px 12px rgba(0,0,0,0.07);">
-    <div style="font-size: 11px; letter-spacing: 2px; color: #718096; text-transform: uppercase; font-weight: 700; margin-bottom: 14px;">⚡ Thẻ Chỉ Số Thị Trường Nhanh</div>
-    <div style="display: flex; flex-wrap: wrap; gap: 12px;">
-      <div style="flex: 1; min-width: 130px; background: linear-gradient(135deg, #e8f5e9, #f1f8e9); border-radius: 10px; padding: 14px 16px; border-left: 4px solid #43a047;">
-        <div style="font-size: 11px; color: #558b2f; font-weight: 700; letter-spacing: 1px;">VN-INDEX</div>
-        <div style="font-size: 22px; font-weight: 900; color: #2e7d32;">~1.290</div>
-        <div style="font-size: 12px; color: #43a047;">▲ Phân hóa, nhóm nhỏ sôi động</div>
-      </div>
-      <div style="flex: 1; min-width: 130px; background: linear-gradient(135deg, #e8f5e9, #f1f8e9); border-radius: 10px; padding: 14px 16px; border-left: 4px solid #43a047;">
-        <div style="font-size: 11px; color: #558b2f; font-weight: 700; letter-spacing: 1px;">DOW JONES</div>
-        <div style="font-size: 22px; font-weight: 900; color: #2e7d32;">52.000+</div>
-        <div style="font-size: 12px; color: #43a047;">▲ Đỉnh lịch sử mới</div>
-      </div>
-      <div style="flex: 1; min-width: 130px; background: linear-gradient(135deg, #e8f5e9, #f1f8e9); border-radius: 10px; padding: 14px 16px; border-left: 4px solid #43a047;">
-        <div style="font-size: 11px; color: #558b2f; font-weight: 700; letter-spacing: 1px;">S&P 500</div>
-        <div style="font-size: 22px; font-weight: 900; color: #2e7d32;">~5.900</div>
-        <div style="font-size: 12px; color: #43a047;">▲ Tích cực theo Dow</div>
-      </div>
-      <div style="flex: 1; min-width: 130px; background: linear-gradient(135deg, #fff8e1, #fffde7); border-radius: 10px; padding: 14px 16px; border-left: 4px solid #f9a825;">
-        <div style="font-size: 11px; color: #f57f17; font-weight: 700; letter-spacing: 1px;">GIÁ DẦU (WTI)</div>
-        <div style="font-size: 22px; font-weight: 900; color: #e65100;">~$68</div>
-        <div style="font-size: 12px; color: #f9a825;">▲ Tăng trở lại, cảnh báo bật mạnh</div>
-      </div>
-      <div style="flex: 1; min-width: 130px; background: linear-gradient(135deg, #fce4ec, #fdf2f8); border-radius: 10px; padding: 14px 16px; border-left: 4px solid #e53935;">
-        <div style="font-size: 11px; color: #b71c1c; font-weight: 700; letter-spacing: 1px;">USD/JPY</div>
-        <div style="font-size: 22px; font-weight: 900; color: #c62828;">~160+</div>
-        <div style="font-size: 12px; color: #e53935;">▼ Yên thấp nhất 40 năm</div>
-      </div>
-      <div style="flex: 1; min-width: 130px; background: linear-gradient(135deg, #ede7f6, #f3e5f5); border-radius: 10px; padding: 14px 16px; border-left: 4px solid #7b1fa2;">
-        <div style="font-size: 11px; color: #6a1b9a; font-weight: 700; letter-spacing: 1px;">BITCOIN</div>
-        <div style="font-size: 22px; font-weight: 900; color: #6a1b9a;">~$107K</div>
-        <div style="font-size: 12px; color: #7b1fa2;">◆ Thị trường crypto ổn định</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- §01 CHỨNG KHOÁN VIỆT NAM -->
-  <div style="background: #ffffff; border-radius: 12px; padding: 24px 28px; margin-bottom: 20px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); border-top: 4px solid #0f3460;">
-    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px;">
-      <span style="background: #0f3460; color: #fff; font-size: 11px; font-weight: 800; padding: 4px 10px; border-radius: 20px; letter-spacing: 1px;">§01</span>
-      <h2 style="margin: 0; font-size: 20px; font-weight: 800; color: #0f3460;">🇻🇳 Chứng Khoán Việt Nam</h2>
-    </div>
-
-    <h3 style="font-size: 16px; color: #1a1a2e; font-weight: 700; margin: 0 0 10px 0; border-left: 3px solid #e94560; padding-left: 10px;">Tiền "vòng" sang cổ phiếu vừa và nhỏ — Nhóm chứng khoán dẫn sóng</h3>
-    <p style="font-size: 14px; line-height: 1.8; color: #2d3748; margin: 0 0 16px 0;">Phiên giao dịch sáng nay ghi nhận một bức tranh thị trường khá đặc trưng: <strong>nhóm cổ phiếu dẫn dắt (bluechip) giữ nhịp ổn định</strong> nhưng không tạo ra cú bứt phá mạnh, trong khi đó dòng tiền nóng lại chảy mạnh sang <strong>nhóm cổ phiếu vừa và nhỏ</strong>, tạo nên sự phân hóa rõ nét. Đây là tín hiệu cho thấy tâm lý nhà đầu tư đang ở trạng thái tìm kiếm alpha — ưu tiên cơ hội tăng giá ngắn hạn hơn là nắm giữ an toàn. Đáng chú ý, <strong>nhóm cổ phiếu chứng khoán tăng mạnh</strong>, phản ánh kỳ vọng thanh khoản thị trường cải thiện trong nửa cuối năm 2026.</p>
-
-    <div style="background: #f0f4ff; border-radius: 8px; padding: 14px 18px; margin-bottom: 16px; border-left: 4px solid #3b82f6;">
-      <div style="font-size: 12px; font-weight: 700; color: #1e40af; margin-bottom: 6px;">🔍 PHÂN TÍCH CHUYÊN SÂU: ETF VN30 — Ai vào, ai ra?</div>
-      <p style="font-size: 13px; line-height: 1.7; color: #1e3a5f; margin: 0;">Theo dự báo từ MBS, kỳ rà soát quý 2/2026 của bộ chỉ số VN30 (hiệu lực từ <strong>3/8/2026</strong>) sẽ chứng kiến sự thay thế đáng kể: <strong>TPB và PLX bị loại</strong>, trong khi <strong>MCH (Masan Consumer) và TCX</strong> được bổ sung. Đây là thông tin có tác động trực tiếp đến dòng tiền từ các quỹ ETF quy mô lên tới <strong>10.000 tỷ đồng</strong>. Nhà đầu tư cần theo dõi sát diễn biến giá của các cổ phiếu này trong những tuần tới, bởi hiệu ứng "mua trước kỳ tái cơ cấu" thường tạo ra biến động giá đáng kể.</p>
-    </div>
-
-    <h3 style="font-size: 16px; color: #1a1a2e; font-weight: 700; margin: 16px 0 10px 0; border-left: 3px solid #e94560; padding-left: 10px;">Khối ngoại bán ròng gần 3 tỷ USD — Nhưng vẫn nhìn dài hạn tích cực</h3>
-    <p style="font-size: 14px; line-height: 1.8; color: #2d3748; margin: 0 0 12px 0;">Con số bán ròng gần <strong>3 tỷ USD</strong> từ đầu năm 2026 của khối ngoại là áp lực không thể phủ nhận. Tuy nhiên, điều đáng chú ý là các quỹ ngoại vẫn duy trì quan điểm <strong>tích cực về dài hạn</strong> với Việt Nam — câu chuyện tăng trưởng kinh tế, dân số trẻ và quá trình nâng hạng thị trường vẫn còn nguyên giá trị. Sự rút lui trong ngắn hạn phản ánh việc họ phải phân bổ lại danh mục trong bối cảnh nhiều cơ hội hấp dẫn xuất hiện trên thị trường toàn cầu, đặc biệt là sóng AI tại Mỹ.</p>
-
-    <div style="background: #f0fff4; border-radius: 8px; padding: 12px 16px; border-left: 4px solid #38a169;">
-      <div style="font-size: 12px; font-weight: 700; color: #276749; margin-bottom: 4px;">🏆 ESG & Phát triển bền vững</div>
-      <p style="font-size: 13px; line-height: 1.6; color: #22543d; margin: 0;"><strong>VCBS</strong> vừa được vinh danh trong <strong>Top 10 Doanh nghiệp ESG Việt Nam Xanh 2026</strong> — tín hiệu tích cực cho thấy ngành chứng khoán Việt Nam đang chủ động hội nhập với tiêu chuẩn quản trị bền vững toàn cầu, một yếu tố ngày càng quan trọng trong mắt nhà đầu tư tổ chức quốc tế.</p>
-    </div>
-  </div>
-
-  <!-- §02 CHỨNG KHOÁN THẾ GIỚI -->
-  <div style="background: #ffffff; border-radius: 12px; padding: 24px 28px; margin-bottom: 20px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); border-top: 4px solid #e94560;">
-    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px;">
-      <span style="background: #e94560; color: #fff; font-size: 11px; font-weight: 800; padding: 4px 10px; border-radius: 20px; letter-spacing: 1px;">§02</span>
-      <h2 style="margin: 0; font-size: 20px; font-weight: 800; color: #e94560;">🌐 Chứng Khoán & Kinh Tế Toàn Cầu</h2>
-    </div>
-
-    <h3 style="font-size: 16px; color: #
 </div>
+
+<!-- BODY -->
+<div class="container">
+
+  <!-- INTRO -->
+  <div class="section">
+    <div class="section-label">§ 01 · Tổng quan phiên</div>
+    <h2>Mở đầu — Tóm tắt ngày 30.06.2026</h2>
+    <p>Hôm nay là ngày giao dịch cuối cùng của Quý II/2026 — một mốc thời điểm có ý nghĩa với các nhà quản lý danh mục (window dressing, tái cơ cấu danh mục quý). Tuy nhiên, <strong>dữ liệu tin tức thô không được cung cấp</strong> cho bản tin kỳ này, do đó desk không thể đưa ra các số liệu cụ thể về thị trường trong nước, quốc tế, vàng, hàng hóa hay tiền điện tử.</p>
+    <p>Bản tin dưới đây phản ánh đúng tình trạng nguồn dữ liệu: <strong>không có thông tin nào được xác nhận</strong> để đưa tin. Mọi nhận định mang tính bối cảnh chung, KHÔNG dựa trên số liệu thực tế của phiên này.</p>
+    <div class="impact amber">→ Lưu ý: Vì thiếu dữ liệu đầu vào, tất cả các mục bên dưới được ghi nhận trạng thái "Không có cập nhật". Nhà đầu tư nên tham khảo các nguồn dữ liệu chính thống trực tiếp.</div>
+  </div>
+
+  <!-- STAT CARDS -->
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="name">VN-Index</div>
+      <div class="value neutral">N/A</div>
+      <div class="change neutral">— dữ liệu trống</div>
+    </div>
+    <div class="stat-card">
+      <div class="name">Thanh khoản</div>
+      <div class="value neutral">N/A</div>
+      <div class="change neutral">— dữ liệu trống</div>
+    </div>
+    <div class="stat-card">
+      <div class="name">Khối ngoại</div>
+      <div class="value neutral">N/A</div>
+      <div class="change neutral">— dữ liệu trống</div>
+    </div>
+    <div class="stat-card">
+      <div class="name">S&amp;P 500</div>
+      <div class="value neutral">N/A</div>
+      <div class="change neutral">— dữ liệu trống</div>
+    </div>
+    <div class="stat-card">
+      <div class="name">Vàng (XAU)</div>
+      <div class="value neutral">N/A</div>
+      <div class="change neutral">— dữ liệu trống</div>
+    </div>
+    <div class="stat-card">
+      <div class="name">Bitcoin</div>
+      <div class="value neutral">N/A</div>
+      <div class="change neutral">— dữ liệu trống</div>
+    </div>
+    <div class="stat-card">
+      <div class="name">DXY (USD)</div>
+      <div class="value neutral">N/A</div>
+      <div class="change neutral">— dữ liệu trống</div>
+    </div>
+    <div class="stat-card">
+      <div class="name">Dầu WTI</div>
+      <div class="value neutral">N/A</div>
+      <div class="change neutral">— dữ liệu trống</div>
+    </div>
+  </div>
+
+  <!-- GLOBAL -->
+  <div class="section">
+    <div class="section-label">§ 02 · Qua đêm — Toàn cầu</div>
+    <h2>Chứng khoán Mỹ &amp; Châu Á</h2>
+    <p>Không có cập nhật đáng chú ý trong khung giờ này. Dữ liệu về các chỉ số Dow Jones, S&amp;P 500, Nasdaq, Nikkei 225, Hang Seng hay CSI 300 không được cung cấp trong nguồn tin đầu vào của bản tin hôm nay.</p>
+    <div class="impact amber">→ Tác động: Nhà đầu tư cần theo dõi trực tiếp các kênh như Bloomberg, Reuters, hoặc bảng giá thời gian thực để cập nhật diễn biến qua đêm trước phiên giao dịch.</div>
+  </div>
+
+  <!-- GOLD & COMMODITIES -->
+  <div class="section">
+    <div class="section-label">§ 03 · Vàng &amp; Hàng hóa</div>
+    <h2>Vàng, Dầu, Kim loại</h2>
+    <p>Không có cập nhật đáng chú ý trong khung giờ này. Không có dữ liệu về giá vàng thế giới (XAU/USD), vàng SJC trong nước, dầu thô WTI/Brent, đồng hay các hàng hóa nông sản.</p>
+    <div class="impact amber">→ Tác động: Giá hàng hóa thế giới ảnh hưởng trực tiếp đến nhóm cổ phiếu năng lượng, vật liệu cơ bản và xuất khẩu. Thiếu dữ liệu khiến đánh giá rủi ro/cơ hội nhóm này bị hạn chế.</div>
+  </div>
+
+  <!-- CRYPTO -->
+  <div class="section">
+    <div class="section-label">§ 04 · Tiền điện tử</div>
+    <h2>Crypto — Bitcoin &amp; Altcoin</h2>
+    <p>Không có cập nhật đáng chú ý trong khung giờ này. Không có dữ liệu về Bitcoin (BTC), Ethereum (ETH) hay toàn thị trường crypto trong nguồn được cung cấp.</p>
+    <div class="impact amber">→ Tác động: Diễn biến crypto thường tác động gián tiếp đến tâm lý nhà đầu tư với khẩu vị rủi ro cao, nhưng không có số liệu để đánh giá trong kỳ này.</div>
+  </div>
+
+  <!-- MACRO -->
+  <div class="section">
+    <div class="section-label">§ 05 · Vĩ mô &amp; Thời sự</div>
+    <h2>Trong nước &amp; Quốc tế</h2>
+    <p>Không có cập nhật đáng chú ý trong khung giờ này. Không có tin về chính sách tiền tệ, lãi suất, tỷ giá, chính sách thương mại quốc tế hay các sự kiện địa chính trị trong dữ liệu đầu vào.</p>
+    <p>Bối cảnh chung cần lưu ý: Cuối quý II/2026 thường là thời điểm các cơ quan thống kê công bố số liệu kinh tế tổng hợp (GDP, CPI, xuất nhập khẩu). Nhà đầu tư nên theo dõi lịch công bố số liệu từ Tổng cục Thống kê (GSO) và các bộ ngành liên quan.</p>
+    <div class="impact amber">→ VN: Thiếu dữ liệu vĩ mô đầu vào khiến không thể định lượng tác động lên định giá thị trường hay kỳ vọng dòng tiền trong phiên hôm nay.</div>
+  </div>
+
+  <!-- REAL ESTATE -->
+  <div class="section">
+    <div class="section-label">§ 06 · Bất động sản</div>
+    <h2>Thị trường BĐS</h2>
+    <p>Không có cập nhật đáng chú ý trong khung giờ này. Không có dữ liệu về giao dịch bất động sản, chính sách tín dụng BĐS, hay thông tin về các doanh nghiệp địa ốc niêm yết trong nguồn được cung cấp.</p>
+    <div class="impact amber">→ Tác động: Nhóm cổ phiếu BĐS và ngân hàng liên quan đến tín dụng bất động sản cần theo dõi riêng từ các báo cáo chuyên ngành.</div>
+  </div>
+
+  <!-- DÒNG TIỀN -->
+  <div class="section">
+    <div class="section-label">§ 07 · Dòng tiền &amp; Vị thế</div>
+    <h2>Khối ngoại &amp; Tự doanh</h2>
+    <p>Không có cập nhật đáng chú ý trong khung giờ này. Không có dữ liệu về giao dịch của khối ngoại (NĐTNN), tự doanh công ty chứng khoán, hay các quỹ ETF trong nguồn cung cấp.</p>
+    <div class="impact amber">→ VN: Dữ liệu dòng tiền khối ngoại thường là tín hiệu dẫn dắt quan trọng. Nhà đầu tư có thể tham khảo số liệu từ HoSE, HNX hoặc các công ty chứng khoán sau khi phiên đóng cửa.</div>
+  </div>
+
+  <!-- VN MARKET -->
+  <div class="section">
+    <div class="section-label">§ 08 · Trong nước — Tín hiệu TTCK VN</div>
+    <h2>VN-Index &amp; Cổ phiếu nổi bật</h2>
+    <p>Không có cập nhật đáng chú ý trong khung giờ này. Không có dữ liệu cụ thể về diễn biến VN-Index, HNX-Index, UPCoM-Index, thanh khoản hay các cổ phiếu tác động mạnh đến chỉ số trong nguồn được cung cấp.</p>
+    <p>Bối cảnh kỹ thuật: Đây là phiên cuối quý — hiệu ứng <em>window dressing</em> (các quỹ mua thêm cổ phiếu đang tăng mạnh để làm đẹp danh mục cuối kỳ) thường khiến thị trường có biến động bất thường về thanh khoản và giá vào cuối phiên chiều.</p>
+    <div class="impact amber">→ VN: Nhà đầu tư nên thận trọng với biến động giá bất thường vào cuối phiên ngày cuối quý — đây thường là hiện tượng kỹ thuật ngắn hạn, không phản ánh xu hướng trung dài hạn.</div>
+  </div>
+
+  <!-- CALENDAR -->
+  <div class="section">
+    <div class="section-label">§ 09 · Lịch sự kiện sắp tới</div>
+    <h2>Các sự kiện cần theo dõi</h2>
+    <p>Không có dữ liệu sự kiện cụ thể được cung cấp. Tuy nhiên, trong bối cảnh đầu quý III/2026, các sự kiện thường quy có thể diễn ra bao gồm: công bố số liệu kinh tế vĩ mô Quý II từ GSO, họp định kỳ Ngân hàng Nhà nước về lãi suất điều hành, mùa ĐHCĐ thường niên kết thúc và mùa kết quả kinh doanh Quý II bắt đầu từ giữa tháng 7/2026.</p>
+    <div class="impact amber">→ Tác động: Nhà đầu tư nên theo dõi lịch công bố KQKD Quý II/2026 — đây thường là chất xúc tác quan trọng nhất cho diễn biến thị trường trong tháng 7.</div>
+  </div>
+
+  <!-- GÓC NHÌN -->
+  <div class="section">
+    <div class="section-label">§ 10 · Góc nhìn &amp; Chiến lược</div>
+    <h2>Đánh giá Bull / Bear — Cuối Q2/2026</h2>
+    <p style="font-size:12px;color:var(--gray);margin-bottom:12px;"><em>Lưu ý: Phần này chỉ nêu các góc nhìn phân tích đối lập, KHÔNG phải khuyến nghị giao dịch / đầu tư.</em></p>
+
+    <div class="bb-grid">
+      <div class="bb-card bull">
+        <h3 style="color:#16a34a">🟢 Luận điểm Tích cực (Bull)</h3>
+        <ul>
+          <li>Cuối quý thường có hiệu ứng window dressing hỗ trợ giá.</li>
+          <li>Dòng tiền tái phân bổ đầu quý III có thể tạo lực cầu mới.</li>
+          <li>Mùa KQKD Q2 sắp tới là chất xúc tác tiềm năng nếu kết quả khả quan.</li>
+          <li>Lãi suất thấp duy trì môi trường thuận lợi cho tài sản rủi ro.</li>
+        </ul>
+      </div>
+      <div class="bb-card bear">
+        <h3 style="color:#dc2626">🔴 Luận điểm Thận trọng (Bear)</h3>
+        <ul>
+          <li>Thiếu thông tin là rủi ro bản thân — thị trường có thể bất ngờ với tin xấu.</li>
+          <li>Áp lực chốt lời cuối quý có thể tạo biến động tiêu cực ngắn hạn.</li>
+          <li>Bất ổn vĩ mô toàn cầu (địa chính trị, lạm phát) chưa có dữ liệu cập nhật.</li>
+          <li>Thanh khoản có thể mỏng vào cuối phiên do tái cơ cấu danh mục.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="desk-view">
+      <strong>🖥 Đánh giá của Desk:</strong> Phiên 30.06.2026 — ngày cuối Quý II — mang tính chất kỹ thuật nhiều hơn là xu hướng. Không có dữ liệu thực tế nào được cung cấp cho bản tin hôm nay, khiến desk không thể đưa ra đánh giá định lượng. Cả hai chiều bull và bear đều có lý lẽ hợp lý trong bối cảnh chuyển giao quý. <strong>Desk khuyến khích nhà đầu tư chờ dữ liệu thực tế từ phiên giao dịch và không đưa ra quyết định dựa trên bản tin thiếu dữ liệu này.</strong> Đây KHÔNG phải khuyến nghị giao dịch / đầu tư.
+    </div>
+  </div>
+
+  <!-- SOURCES -->
+  <div class="sources">
+    <h3>📋 Nguồn tham khảo</h3>
+    <p>Bản tin kỳ này <strong>không có dữ liệu tin tức thô được cung cấp</strong> làm đầu vào. Do đó, không có nguồn tham khảo cụ thể nào được liệt kê. Toàn bộ nội dung bên trên phản ánh bối cảnh chung và nhận định phương pháp luận, không dựa trên bài báo hay báo cáo cụ thể nào. Để có thông tin chính xác, vui lòng tham khảo trực tiếp: HoSE (hsx.vn), HNX (hnx.vn), Ngân hàng Nhà nước (sbv.gov.vn), Bloomberg, Reuters, và các công ty chứng khoán.</p>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>© Bản tin TTCK · 30.06.2026 · Tài liệu chỉ mang tính tham khảo, KHÔNG phải khuyến nghị giao dịch / đầu tư.</p>
+  <p style="margin-top:4px;">Mọi quyết định đầu tư cần dựa trên phân tích độc lập và tham vấn chuyên gia tài chính có chứng chỉ.</p>
+</footer>
+
 </body>
 </html>
