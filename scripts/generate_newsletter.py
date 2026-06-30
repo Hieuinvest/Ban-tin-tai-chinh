@@ -73,7 +73,7 @@ def main():
     try:
         client = Anthropic(api_key=api_key)
         message = client.messages.create(
-            model="claude-3-5-sonnet-latest",
+            model="claude-sonnet-4-6",
             max_tokens=4000,
             temperature=0.3,
             system="You are an expert AI data journalist. Output raw HTML format inside a single <div> wrapper only.",
