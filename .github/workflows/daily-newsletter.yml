@@ -1,7 +1,9 @@
 name: "Tạo bản tin TTCK hằng ngày"
 on:
   schedule:
-    - cron: '0 1 * * *'
+    # 00:45 UTC = 07:45 giờ Việt Nam (UTC+7)
+    # "1-5" = chỉ chạy Thứ Hai đến Thứ Sáu, nghỉ Thứ Bảy & Chủ Nhật
+    - cron: '45 0 * * 1-5'
   workflow_dispatch:
 jobs:
   build-and-deploy:
