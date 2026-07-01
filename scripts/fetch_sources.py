@@ -22,12 +22,21 @@ SOURCES = [
     ("VnEconomy - Chứng khoán", "https://vneconomy.vn/chung-khoan.rss", "TTCK Việt Nam"),
     ("CafeF - Chứng khoán", "https://cafef.vn/thi-truong-chung-khoan.rss", "TTCK Việt Nam"),
     ("VietnamBiz - Chứng khoán", "https://vietnambiz.vn/chung-khoan.rss", "TTCK Việt Nam"),
+    ("VnExpress - Kinh doanh", "https://vnexpress.net/rss/kinh-doanh.rss", "TTCK Việt Nam"),
+    ("VnEconomy - Thị trường", "https://vneconomy.vn/thi-truong.rss", "TTCK Việt Nam"),
+    ("Tin nhanh Chứng khoán", "https://www.tinnhanhchungkhoan.vn/rss/chung-khoan.rss", "TTCK Việt Nam"),
+    ("Báo Đầu tư - Tài chính CK", "https://baodautu.vn/tai-chinh-chung-khoan.rss", "TTCK Việt Nam"),
+    ("Diễn đàn Doanh nghiệp - CK", "https://diendandoanhnghiep.vn/chung-khoan.rss", "TTCK Việt Nam"),
 
     # --- Thế giới / thị trường quốc tế ---
     ("Vietstock - Chứng khoán thế giới", "https://vietstock.vn/773/the-gioi/chung-khoan-the-gioi.rss", "Thế giới"),
+    ("CafeF - Tài chính quốc tế", "https://cafef.vn/tai-chinh-quoc-te.rss", "Thế giới"),
     ("WSJ Markets", "https://feeds.content.dowjones.io/public/rss/RSSMarketsMain", "Thế giới"),
+    ("MarketWatch - Top Stories", "https://feeds.content.dowjones.io/public/rss/mw_topstories", "Thế giới"),
+    ("Investing.com VN - Tin tức", "https://vn.investing.com/rss/news.rss", "Thế giới"),
     ("Investing.com - Tin thị trường", "https://www.investing.com/rss/news_25.rss", "Thế giới"),
     ("CNBC - Markets", "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=20910258", "Thế giới"),
+    ("CNBC - Finance", "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10000664", "Thế giới"),
 
     # --- Vàng & hàng hóa ---
     ("Vietstock - Hàng hóa", "https://vietstock.vn/737/hang-hoa/vang.rss", "Vàng & Hàng hóa"),
