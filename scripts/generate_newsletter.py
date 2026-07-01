@@ -441,7 +441,7 @@ footer .brand{{font-size:11px;color:#7a7060;font-weight:700;text-align:right}}
       nhan ban tin va cap nhat thi truong hang ngay.</p>
     </div>
     <div class="contact-qr">
-      <img src="./assets/zalo-qr.png" alt="QR Zalo tu van dau tu" width="140" height="140">
+      <img src="../qr%20zalo.jpg" alt="QR Zalo tu van dau tu" width="140" height="140">
       <div class="qr-caption">Quet de tham gia nhom Zalo</div>
     </div>
   </div>
