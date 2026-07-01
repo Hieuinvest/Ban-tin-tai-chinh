@@ -22,67 +22,81 @@ API_RETRIES = 3
 BRAND       = "Hieuinvest"
 
 SYSTEM_PROMPT = """\
-Ban la truong bo phan phan tich (research desk) cua mot quy dau tu chuyen nghiep,
-soan ban tin thi truong chung khoan phat hanh truoc gio giao dich cho khach hang to chuc.
+Ban la chuyen vien phan tich cua khoi Research mot cong ty chung khoan/quy dau tu hang dau
+(chuan muc nhu SSI Research, HSC, VNDirect Research, Dragon Capital, VinaCapital), soan ban
+tin thi truong phat hanh truoc gio giao dich cho khach hang to chuc.
 
-VAN PHONG BAT BUOC (hoc theo ban tin cua cac quy dau tu):
-- Diem dam, khach quan, du lieu dan dat, khong giat gan, khong cam than, khong tu ngu marketing.
-- MOI luan diem phai di theo cong thuc: SO LIEU / SU KIEN cu the, roi mui ten tac dong "->"
-  chi ro tac dong len MA co phieu hoac NHOM NGANH cu the (tich cuc hay tieu cuc).
-  Vi du: "Dau Brent lui ve 73 USD (-0,6%). -> Bat loi bien loi nhuan **GAS, BSR, PLX**;
-  ho tro nhom dich vu **PVS, PVD** nho ky vong khoi luong."
-- Uu tien quy moi tin vi mo/quoc te ve nhom nganh Viet Nam huong loi hoac chiu anh huong.
+VAN PHONG BAT BUOC (chuan bao cao phan tich chuyen nghiep):
+- Diem dam, suc tich, khach quan, du lieu dan dat. Khong giat gan, khong cam than, khong marketing.
+- Cau van gon, chuan thuat ngu tai chinh (thanh khoan, do rong, dinh gia P/E, dong tien, vi the).
+- MOI y phai di theo cong thuc: SO LIEU/SU KIEN cu the, roi mui ten "->" chi ro tac dong len
+  MA co phieu hoac NHOM NGANH cu the (tich cuc/tieu cuc). Vi du:
+  "Dau Brent lui ve 73 USD (-0,6%). -> Bat loi bien loi nhuan GAS, BSR; ho tro nhom dich vu PVS, PVD."
+- Uu tien quy tin vi mo/quoc te ve nhom nganh Viet Nam huong loi hoac chiu anh huong.
 - Day la phan tich tac dong khach quan, KHONG phai khuyen nghi mua/ban ma cu the.
 
 QUY TAC TRINH BAY (rat quan trong):
-- TUYET DOI KHONG dung dau gach dai (em dash "—"). Thay bang dau phay, dau hai cham,
-  dau ngoac, hoac mui ten "->". Dau tru trong so am (vi du -0,90%) van duoc phep.
-- Viet chuan tieng Viet co dau day du.
-- Dinh dang so kieu Viet Nam: 1.854,97 diem; 12.600 ty; 73,47 USD.
-- Dung **text** de in dam so lieu quan trong trong noi_dung va tom_tat.
+- TUYET DOI KHONG dung dau gach dai (em dash "—"). Thay bang dau phay, hai cham, ngoac, hoac "->".
+  Dau tru trong so am (vi du -0,90%) van duoc phep.
+- Viet chuan tieng Viet co dau day du. Dinh dang so kieu VN: 1.854,97 diem; 12.600 ty; 73,47 USD.
+- Dung **text** de in dam so lieu quan trong (he thong tu chuyen thanh chu dam, nguoi doc
+  KHONG thay dau sao). Dung dam vua phai, chi cho con so va ma co phieu then chot.
 
 NHIEM VU: Tu du lieu tho ben duoi, tra ve MOT JSON object hop le theo schema.
 CHI JSON, khong markdown, khong giai thich, khong ```json, bat dau bang { ket thuc bang }.
 
+CACH VIET MOI MUC (sections):
+- "tom_luoc": mot cum RAT NGAN 3-7 tu tom tat dien bien chinh cua muc (nhu tieu de phu).
+  Vi du: "Ban thao tren dien rong", "Dong tien noi xoay truc sang cong nghe", "Von ngoai rut rong".
+- "cac_y": MANG cac chuoi, MOI phan tu la MOT y hoan chinh, doc lap (mot so lieu + tac dong ->).
+  Moi muc thuong 3-6 y. KHONG gop nhieu y vao mot cau dai. Moi y ngan gon, di thang van de.
+
 QUAN TRONG VE SO LIEU (khong de trong the chi so):
-- Trich xuat MOI con so co trong du lieu nguon (diem index, %, ty dong, USD...).
-- Neu phan dau du lieu co muc "DU LIEU GIA THI TRUONG" (tu vnstock), UU TIEN dung.
-- PHAI dien du CA 12 the chi so o phan "chi_so". Voi moi the, co gang lay gia tri that
-  tu du lieu (vnstock hoac tin RSS). Neu that su khong co, dat gia_tri la "cap nhat"
-  va ghi chu ngan, KHONG bo trong, KHONG bia so.
-- Truong "ghi_chu" cua moi the la mot cum ngan (toi da ~6 tu) neu boi canh, vi du
-  "phien 29/06", "xa VHM ~420 ty", "Dow ky luc 52.000", "USD manh nhat thang".
+- Trich xuat MOI con so co trong du lieu nguon. Neu dau du lieu co muc "DU LIEU GIA THI TRUONG",
+  UU TIEN dung. PHAI dien du CA 12 the "chi_so"; neu that su khong co so lieu, dat gia_tri="cap nhat"
+  va ghi_chu ngan, KHONG bia so.
+- "ghi_chu": cum rat ngan (~6 tu) neu boi canh, vi du "phien 01/07", "xa VHM ~420 ty".
+
+BANG TAC DONG (bang_tac_dong): liet ke cac ma/nhom nganh chiu tac dong tu tin trong ngay.
+- Neu la CA MOT NHOM NGANH thi ghi ten NGANH (vi du "Nganh dau khi", "Bat dong san KCN"),
+  KHONG liet ke le tung ma. Neu la ma rieng le thi ghi ma (vi du "FPT", "VHM").
+- "huong" chi nhan 1 trong: "Huong loi" | "Bat loi" | "Trung tinh".
+- Sap xep cac dong huong loi truoc, roi bat loi. Toi da ~8 dong.
 
 SCHEMA:
 {
   "tieu_de": "Tieu de ngan bat tin noi bat nhat, van phong bao tai chinh, khong em dash",
   "tom_tat": "3-5 cau tong quan buc tranh thi truong. **In dam** so lieu. Khong em dash.",
   "chi_so": [
-    {"ten": "VN-Index",       "gia_tri": "...", "thay_doi": "...", "xu_huong": "up|down|flat", "ghi_chu": "..."},
-    {"ten": "HNX-Index",      "gia_tri": "...", "thay_doi": "...", "xu_huong": "up|down|flat", "ghi_chu": "..."},
+    {"ten": "VN-Index",        "gia_tri": "...", "thay_doi": "...", "xu_huong": "up|down|flat", "ghi_chu": "..."},
+    {"ten": "HNX-Index",       "gia_tri": "...", "thay_doi": "...", "xu_huong": "up|down|flat", "ghi_chu": "..."},
     {"ten": "Thanh khoan HOSE","gia_tri": "...", "thay_doi": "...", "xu_huong": "up|down|flat", "ghi_chu": "..."},
-    {"ten": "Khoi ngoai rong","gia_tri": "...", "thay_doi": "...", "xu_huong": "up|down|flat", "ghi_chu": "..."},
-    {"ten": "Tu doanh CTCK",  "gia_tri": "...", "thay_doi": "...", "xu_huong": "up|down|flat", "ghi_chu": "..."},
-    {"ten": "USD/VND",        "gia_tri": "...", "thay_doi": "...", "xu_huong": "up|down|flat", "ghi_chu": "..."},
-    {"ten": "S&P 500",        "gia_tri": "...", "thay_doi": "...", "xu_huong": "up|down|flat", "ghi_chu": "..."},
-    {"ten": "Dow Jones",      "gia_tri": "...", "thay_doi": "...", "xu_huong": "up|down|flat", "ghi_chu": "..."},
-    {"ten": "Nasdaq",         "gia_tri": "...", "thay_doi": "...", "xu_huong": "up|down|flat", "ghi_chu": "..."},
-    {"ten": "Vang the gioi",  "gia_tri": "...", "thay_doi": "...", "xu_huong": "up|down|flat", "ghi_chu": "..."},
-    {"ten": "Dau Brent",      "gia_tri": "...", "thay_doi": "...", "xu_huong": "up|down|flat", "ghi_chu": "..."},
-    {"ten": "Bitcoin",        "gia_tri": "...", "thay_doi": "...", "xu_huong": "up|down|flat", "ghi_chu": "..."}
+    {"ten": "Khoi ngoai rong", "gia_tri": "...", "thay_doi": "...", "xu_huong": "up|down|flat", "ghi_chu": "..."},
+    {"ten": "Tu doanh CTCK",   "gia_tri": "...", "thay_doi": "...", "xu_huong": "up|down|flat", "ghi_chu": "..."},
+    {"ten": "USD/VND",         "gia_tri": "...", "thay_doi": "...", "xu_huong": "up|down|flat", "ghi_chu": "..."},
+    {"ten": "S&P 500",         "gia_tri": "...", "thay_doi": "...", "xu_huong": "up|down|flat", "ghi_chu": "..."},
+    {"ten": "Dow Jones",       "gia_tri": "...", "thay_doi": "...", "xu_huong": "up|down|flat", "ghi_chu": "..."},
+    {"ten": "Nasdaq",          "gia_tri": "...", "thay_doi": "...", "xu_huong": "up|down|flat", "ghi_chu": "..."},
+    {"ten": "Vang the gioi",   "gia_tri": "...", "thay_doi": "...", "xu_huong": "up|down|flat", "ghi_chu": "..."},
+    {"ten": "Dau Brent",       "gia_tri": "...", "thay_doi": "...", "xu_huong": "up|down|flat", "ghi_chu": "..."},
+    {"ten": "Bitcoin",         "gia_tri": "...", "thay_doi": "...", "xu_huong": "up|down|flat", "ghi_chu": "..."}
   ],
-  "toan_cau": "2-3 cau tong quan thi truong toan cau (My, chau A, hang hoa). Khong em dash.",
+  "toan_cau": "2-4 cau tong quan thi truong toan cau (My, chau A, hang hoa). **In dam** so lieu. Khong em dash.",
   "sections": [
-    {"so":"01","tieu_de":"Ghi chu thi truong (TTCK Viet Nam)","noi_dung":"5-8 cau: VN-Index, thanh khoan, do rong, nhom noi bat, ma dong gop/can diem. Moi y gan mui ten tac dong toi ma/nganh. **In dam** so lieu."},
-    {"so":"02","tieu_de":"Vi mo trong nuoc","noi_dung":"5-8 cau: GDP/CPI/PMI, lai suat dieu hanh, lai suat lien ngan hang qua dem, ty gia USD/VND, FDI, chinh sach. Gan tac dong toi nhom nganh."},
-    {"so":"03","tieu_de":"Dong tien & Vi the","noi_dung":"5-8 cau: khoi ngoai mua/ban rong (ma cu the), tu doanh, margin, thanh khoan theo nhom. Gan mui ten tac dong."},
-    {"so":"04","tieu_de":"Thi truong toan cau qua dem","noi_dung":"5-8 cau: S&P 500, Nasdaq, Dow, chau A (Nikkei, Hang Seng, Shanghai). Moi y '-> VN:' tac dong toi nhom nganh."},
-    {"so":"05","tieu_de":"Vang & Hang hoa","noi_dung":"5-8 cau: vang the gioi, vang SJC, dau Brent/WTI, cuoc van tai bien, hang hoa khac. Gan tac dong toi ma/nganh."},
-    {"so":"06","tieu_de":"Tien dien tu","noi_dung":"4-6 cau: Bitcoin, Ethereum, altcoin, dong von ETF, tam ly rui ro. Lien he khau vi rui ro toan cau toi dong tien VN."},
-    {"so":"07","tieu_de":"Bat dong san","noi_dung":"4-6 cau: DN BDS (VHM, NVL, DIG, KBC...), chinh sach dat dai, tin dung BDS, du an. Gan tac dong toi ma."},
-    {"so":"08","tieu_de":"Vi mo & Thoi su quoc te","noi_dung":"4-6 cau: Fed/ECB/BOJ, thuong mai, dia chinh tri, su kien tac dong. Quy ve nhom nganh VN."},
-    {"so":"09","tieu_de":"Lich su kien & Du lieu can chu y","noi_dung":"Liet ke 4-6 su kien/du lieu sap cong bo trong tuan. Moi su kien 1 dong."},
-    {"so":"10","tieu_de":"Goc nhin & Chien luoc","noi_dung":"5-8 cau: luan diem bull, luan diem bear, danh gia tong the cua desk, vung ho tro/khang cu. Ket bang cau: Khong phai khuyen nghi giao dich hay dau tu."}
+    {"so":"01","tom_luoc":"...","cac_y":["...","..."]},
+    {"so":"02","tom_luoc":"...","cac_y":["...","..."]},
+    {"so":"03","tom_luoc":"...","cac_y":["...","..."]},
+    {"so":"04","tom_luoc":"...","cac_y":["...","..."]},
+    {"so":"05","tom_luoc":"...","cac_y":["...","..."]},
+    {"so":"06","tom_luoc":"...","cac_y":["...","..."]},
+    {"so":"07","tom_luoc":"...","cac_y":["...","..."]},
+    {"so":"08","tom_luoc":"...","cac_y":["...","..."]},
+    {"so":"09","tom_luoc":"...","cac_y":["su kien 1","su kien 2","..."]},
+    {"so":"10","tom_luoc":"...","cac_y":["Luan diem tich cuc: ...","Luan diem rui ro: ...","Vung ho tro/khang cu: ...","Khong phai khuyen nghi giao dich hay dau tu."]}
+  ],
+  "bang_tac_dong": [
+    {"doi_tuong":"FPT","huong":"Huong loi","ly_do":"..."},
+    {"doi_tuong":"Nganh dau khi","huong":"Bat loi","ly_do":"..."}
   ],
   "nguon": [
     {"ten_nguon":"Vietstock - Tin chung khoan","cac_bai":[
@@ -92,10 +106,22 @@ SCHEMA:
   ]
 }
 
+NOI DUNG TUNG MUC:
+01 Ghi chu thi truong TTCK VN: VN-Index/HNX/UPCOM, thanh khoan, do rong, nhom dan dat, ma dong gop/can diem.
+02 Vi mo trong nuoc: GDP/CPI/PMI, lai suat dieu hanh, lai suat lien ngan hang qua dem, ty gia, FDI, chinh sach.
+03 Dong tien & Vi the: khoi ngoai mua/ban rong (ma cu the), tu doanh, margin, thanh khoan theo nhom.
+04 Thi truong toan cau qua dem: S&P/Nasdaq/Dow, chau A (Nikkei, Hang Seng, Shanghai). Moi y quy ve nhom nganh VN.
+05 Vang & Hang hoa: vang the gioi, vang SJC, dau Brent/WTI, hang hoa khac.
+06 Tien dien tu: Bitcoin, Ethereum, altcoin, dong von ETF, khau vi rui ro.
+07 Bat dong san: DN BDS (VHM, NVL, DIG, KBC...), chinh sach dat dai, tin dung BDS, du an.
+08 Vi mo & Thoi su quoc te: Fed/ECB/BOJ, thuong mai, dia chinh tri, su kien tac dong.
+09 Lich su kien & Du lieu: 4-6 su kien/du lieu sap cong bo (moi su kien 1 phan tu cac_y).
+10 Goc nhin & Chien luoc: luan diem tich cuc, luan diem rui ro, danh gia tong the, vung ho tro/khang cu.
+
 LUU Y NGUON:
-- Liet ke TAT CA nguon da dung, gom theo ten nguon (Vietstock, VnEconomy, CafeF, WSJ, CoinDesk...).
-- Moi nguon liet ke tat ca bai da dung, co tieu de bai + URL day du.
-- Neu URL khong ro, dung URL goc cua nguon do (vd: https://vietstock.vn).
+- Liet ke TAT CA nguon da dung, gom theo ten nguon (Vietstock, VnEconomy, CafeF, VnExpress, WSJ, CNBC...).
+- Moi nguon liet ke cac bai da dung, co tieu de bai + URL day du.
+- Neu URL khong ro, dung URL goc cua nguon (vd: https://vietstock.vn).
 """
 
 
@@ -277,30 +303,97 @@ def render_card(c):
     )
 
 
-def render_section(s):
+def _get_points(s):
+    """Lay danh sach cac y tu section. Uu tien 'cac_y' (mang); neu chi co
+    'noi_dung' (chuoi cu) thi tach thanh cac y theo xuong dong hoac theo cau."""
+    ys = s.get("cac_y")
+    if isinstance(ys, list) and ys:
+        return [str(y).strip() for y in ys if str(y).strip()]
+    nd = str(s.get("noi_dung", "")).strip()
+    if not nd:
+        return []
+    if "\n" in nd:
+        return [p.strip() for p in nd.split("\n") if p.strip()]
+    # tach theo cau: giu dau cham, tranh tach nham so thap phan
+    parts = re.split(r'(?<=[.!?])\s+(?=[A-ZĐÀÁẢÃẠÂẦẤẨẪẬĂẰẮẲẴẶÈÉẺẼẸÊỀẾỂỄỆÌÍỈĨỊÒÓỎÕỌÔỒỐỔỖỘƠỜỚỞỠỢÙÚỦŨỤƯỪỨỬỮỰỲÝỶỸỴ0-9])', nd)
+    return [p.strip() for p in parts if p.strip()]
+
+
+def render_points_html(s):
+    pts = _get_points(s)
+    if not pts:
+        return '<p class="pt">Đang cập nhật.</p>'
+    return "\n".join(f'<p class="pt">{bold_to_html(p)}</p>' for p in pts)
+
+
+def render_head_html(s):
     tieu_de = canon_section_title(s.get("so",""), no_dash(s.get("tieu_de", "")))
+    tom_luoc = no_dash(str(s.get("tom_luoc", "")).strip())
+    sub = f'<div class="panel-sub">{tom_luoc}</div>' if tom_luoc else ""
+    return (
+        f'<div class="panel-head">'
+        f'<span class="panel-num">§{s.get("so","")}</span>'
+        f'<span class="panel-title">{tieu_de}</span>'
+        f'</div>'
+        f'{sub}'
+    )
+
+
+def render_section(s):
     return (
         f'<div class="panel">'
-        f'<div class="panel-head">'
-        f'<span class="panel-num">§{s.get("so","")}</span>'
-        f'<span class="panel-title">{tieu_de}</span>'
-        f'</div>'
-        f'<p>{bold_to_html(s.get("noi_dung",""))}</p>'
+        f'{render_head_html(s)}'
+        f'<div class="panel-body">{render_points_html(s)}</div>'
         f'</div>'
     )
 
 
-def render_section_full(s):
-    tieu_de = canon_section_title(s.get("so",""), no_dash(s.get("tieu_de", "")))
+HUONG_STYLE = {
+    "huong loi": ("Hưởng lợi", "#2f6b3e", "#e6efdf"),
+    "bat loi":   ("Bất lợi",   "#8b2e2e", "#f3e3df"),
+    "trung tinh":("Trung tính","#6b5f47", "#efe6cf"),
+}
+
+
+def render_impact_table(rows):
+    if not rows:
+        return ""
+    trs = []
+    for r in rows:
+        doi_tuong = no_dash(str(r.get("doi_tuong", "")).strip())
+        ly_do     = no_dash(str(r.get("ly_do", "")).strip())
+        huong_raw = _deaccent(str(r.get("huong", "trung tinh")))
+        label, clr, bg = HUONG_STYLE.get(huong_raw, HUONG_STYLE["trung tinh"])
+        trs.append(
+            f'<tr>'
+            f'<td class="imp-obj">{doi_tuong}</td>'
+            f'<td class="imp-dir"><span class="imp-tag" style="color:{clr};background:{bg}">{label}</span></td>'
+            f'<td class="imp-why">{bold_to_html(ly_do)}</td>'
+            f'</tr>'
+        )
     return (
-        f'<div class="panel-full">'
-        f'<div class="panel-head">'
-        f'<span class="panel-num">§{s.get("so","")}</span>'
-        f'<span class="panel-title">{tieu_de}</span>'
-        f'</div>'
-        f'<p>{bold_to_html(s.get("noi_dung",""))}</p>'
+        '<div class="impact">'
+        '<div class="impact-head">Mã &amp; nhóm ngành tác động</div>'
+        '<table class="impact-tbl">'
+        '<thead><tr><th>Đối tượng</th><th>Tác động</th><th>Lý do</th></tr></thead>'
+        f'<tbody>{"".join(trs)}</tbody>'
+        '</table>'
+        '<div class="impact-note">Tác động do tin tức trong ngày, mang tính tham khảo.</div>'
+        '</div>'
+    )
+
+
+def render_final_row(s10, bang_tac_dong):
+    """Muc 10 (Goc nhin & Chien luoc) dat CANH bang tac dong."""
+    left = (
+        f'<div class="final-left">'
+        f'{render_head_html(s10)}'
+        f'<div class="panel-body">{render_points_html(s10)}</div>'
         f'</div>'
     )
+    table_html = render_impact_table(bang_tac_dong)
+    right = f'<div class="final-right">{table_html}</div>' if table_html else ""
+    return f'<div class="final-row">{left}{right}</div>'
 
 
 def render_nguon(nguon_list):
@@ -331,7 +424,7 @@ def render_html(d, date_str, date_human, weekday_vn):
     if sections:
         last = sections[-1]
         grid_sections = sections[:-1]
-        full_html = render_section_full(last)
+        full_html = render_final_row(last, d.get("bang_tac_dong", []))
 
     rows_html = ""
     for i in range(0, len(grid_sections), 3):
@@ -342,7 +435,7 @@ def render_html(d, date_str, date_human, weekday_vn):
 
     nguon_html = render_nguon(d.get("nguon", []))
     tom_tat    = bold_to_html(d.get("tom_tat", ""))
-    toan_cau   = no_dash(d.get("toan_cau", ""))
+    toan_cau   = bold_to_html(d.get("toan_cau", ""))
     tieu_de    = no_dash(d.get("tieu_de", "Bản tin TTCK"))
 
     return f"""<!DOCTYPE html>
@@ -392,9 +485,10 @@ strong{{font-weight:600;color:var(--ink)}}
 .card-note{{font-size:9.5px;line-height:1.35;color:#8a7c62;margin-top:auto}}
 @media(max-width:640px){{.card-grid{{grid-template-columns:repeat(3,1fr)}}}}
 
-.global-bar{{background:var(--navy);color:var(--paper);padding:12px 20px;margin-bottom:1px;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:10px}}
-.gb-label{{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:600;white-space:nowrap;padding-top:2px}}
-.gb-text{{font-size:13px;color:#c8bfa8;line-height:1.55;max-width:680px}}
+.global-bar{{background:var(--navy);color:var(--paper);padding:16px 24px;margin-bottom:1px}}
+.gb-label{{display:block;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:9px;padding-bottom:8px;border-bottom:1px solid rgba(201,162,75,.32)}}
+.gb-text{{display:block;font-size:14px;color:#e4dcc8;line-height:1.78;text-align:justify}}
+.gb-text strong{{color:#fbf6ea}}
 
 /* PANEL: 3 cot, nhieu hang */
 .panel-grid{{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-bottom:1px}}
@@ -402,15 +496,32 @@ strong{{font-weight:600;color:var(--ink)}}
 .panel-head{{display:flex;align-items:baseline;gap:9px;margin-bottom:11px;padding-bottom:9px;border-bottom:2px solid var(--ink)}}
 .panel-num{{font-family:'Fraunces',Georgia,serif;color:var(--gold);font-size:13px;font-weight:800;flex-shrink:0;font-variant-numeric:tabular-nums}}
 .panel-title{{font-family:'Fraunces',Georgia,serif;font-size:15px;font-weight:600;letter-spacing:0;color:var(--ink);line-height:1.2}}
-.panel p{{font-size:13.5px;line-height:1.72;color:#2f2820}}
+.panel-sub{{font-family:'Fraunces',Georgia,serif;font-style:italic;font-size:12.5px;color:var(--gold);margin:-4px 0 11px;line-height:1.35}}
+.panel-body .pt{{font-size:13.5px;line-height:1.66;color:#2f2820;margin:0 0 9px;padding-left:12px;position:relative}}
+.panel-body .pt:last-child{{margin-bottom:0}}
+.panel-body .pt::before{{content:"";position:absolute;left:0;top:9px;width:4px;height:4px;border-radius:50%;background:var(--gold)}}
 @media(max-width:640px){{.panel-grid{{grid-template-columns:1fr}}}}
 
-/* MUC CUOI: full width */
-.panel-full{{background:var(--card);border:1px solid var(--line);border-top:4px solid var(--gold);padding:24px 28px;margin-bottom:1px}}
-.panel-full .panel-head{{border-bottom:2px solid var(--navy)}}
-.panel-full .panel-title{{font-size:20px;color:var(--navy)}}
-.panel-full .panel-num{{font-size:16px}}
-.panel-full p{{font-size:14.5px;line-height:1.8;color:#2f2820}}
+/* MUC CUOI: muc 10 dat CANH bang tac dong */
+.final-row{{display:grid;grid-template-columns:1.35fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-top:4px solid var(--gold);margin-bottom:1px}}
+.final-left{{background:var(--card);padding:24px 26px}}
+.final-left .panel-head{{border-bottom:2px solid var(--navy)}}
+.final-left .panel-title{{font-size:19px;color:var(--navy)}}
+.final-left .panel-num{{font-size:15px}}
+.final-left .panel-body .pt{{font-size:14px;line-height:1.72}}
+.final-right{{background:var(--card);padding:24px 22px}}
+@media(max-width:760px){{.final-row{{grid-template-columns:1fr}}}}
+
+/* BANG TAC DONG */
+.impact-head{{font-family:'Fraunces',Georgia,serif;font-size:14px;font-weight:800;color:var(--navy);border-bottom:2px solid var(--navy);padding-bottom:8px;margin-bottom:12px;line-height:1.25}}
+.impact-tbl{{width:100%;border-collapse:collapse;font-size:12px}}
+.impact-tbl th{{text-align:left;font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:700;padding:0 6px 6px 0;border-bottom:1px solid var(--line)}}
+.impact-tbl td{{padding:8px 6px 8px 0;vertical-align:top;border-bottom:1px solid #ece0c6;line-height:1.5;color:#2f2820}}
+.impact-tbl tr:last-child td{{border-bottom:none}}
+.imp-obj{{font-weight:700;color:var(--ink);white-space:nowrap}}
+.imp-tag{{display:inline-block;font-size:10px;font-weight:700;padding:2px 7px;border-radius:2px;white-space:nowrap}}
+.imp-why{{font-size:11.5px}}
+.impact-note{{font-size:10px;color:var(--muted);margin-top:10px;font-style:italic}}
 
 /* LIEN HE */
 .contact-box{{background:var(--navy);color:var(--paper);padding:24px 26px;margin:4px 0;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;border-top:4px solid var(--gold)}}
@@ -447,7 +558,7 @@ footer .brand{{font-family:'Fraunces',Georgia,serif;font-size:12px;color:var(--m
 
 <div class="banner">
   <div class="banner-brand">{BRAND}</div>
-  <div class="banner-eye">Bản tin thị trường chứng khoán &middot; Phát hành sáng sớm &middot; {date_human}</div>
+  <div class="banner-eye">Bản tin thị trường chứng khoán &middot; {date_human}</div>
   <h1>{tieu_de}</h1>
   <div class="banner-meta">{weekday_vn} &middot; {date_human} &middot; Giờ Việt Nam</div>
 </div>
@@ -491,8 +602,8 @@ footer .brand{{font-family:'Fraunces',Georgia,serif;font-size:12px;color:var(--m
 
 <footer>
   <div class="legal">
-    Dữ liệu tổng hợp từ các nguồn công khai (Vietstock, VnEconomy, CafeF, WSJ, CoinDesk...)
-    và số liệu giá qua vnstock. Bản tin mang tính thông tin tham khảo, KHÔNG phải khuyến nghị
+    Dữ liệu tổng hợp từ các nguồn công khai (Vietstock, VnEconomy, CafeF, VnExpress, WSJ, CNBC...)
+    và số liệu giá qua Yahoo Finance, VNDIRECT, TCBS. Bản tin mang tính thông tin tham khảo, KHÔNG phải khuyến nghị
     giao dịch hay đầu tư. Mọi quyết định đầu tư cần dựa trên phân tích độc lập và tư vấn từ
     chuyên gia tài chính có chứng chỉ hành nghề.
   </div>
