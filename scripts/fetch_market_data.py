@@ -150,6 +150,49 @@ def tcbs_quote(symbol, is_index=False):
         return None
 
 
+# ---------- Du phong them: SSI iBoard API ----------
+def ssi_quote(symbol, is_index=False):
+    """SSI iBoard API cong khai, hay duoc cac tool VN dung."""
+    try:
+        url = "https://iboard-query.ssi.com.vn/v2/stock/type"
+        params = {"lookupRequest.market": "HOSE",
+                  "lookupRequest.pageIndex": 1,
+                  "lookupRequest.pageSize": 1,
+                  "lookupRequest.code": symbol}
+        r = _get(url)
+        if not r:
+            # try fallback endpoint
+            url2 = f"https://wgateway-iboard.ssi.com.vn/graphql"
+            return None
+    except Exception:
+        pass
+    return None
+
+
+# ---------- Du phong: Cafef widget API ----------
+def cafef_index_quote(symbol):
+    """Lay chi so VN tu cafef API cong khai (dang JSON nhe)."""
+    map_code = {"VNINDEX": "VNINDEX", "HNXINDEX": "HASTCINDEX", "UPCOMINDEX": "UPCOMINDEX"}
+    code = map_code.get(symbol, symbol)
+    url = f"https://s.cafef.vn/Ajax/PageNew/DataHistory/PriceHistory.ashx?Symbol={code}&StartDate=&EndDate=&PageIndex=1&PageSize=3"
+    r = _get(url)
+    if not r:
+        return None
+    try:
+        data = r.json()
+        items = data.get("Data", {}).get("Data", [])
+        if not items:
+            return None
+        latest = items[0]
+        price = float(str(latest.get("ClosePrice","0")).replace(",",""))
+        prev = float(str(items[1].get("ClosePrice","0")).replace(",","")) if len(items)>1 else None
+        pct = (price - prev)/prev*100 if prev and prev>0 else None
+        return (price, pct)
+    except Exception as e:
+        print(f"  [!] cafef {symbol}: {e}", file=sys.stderr)
+        return None
+
+
 # ---------- Du phong cuoi: vnstock ----------
 def vnstock_quote(symbol):
     try:
@@ -180,12 +223,17 @@ def emit(label, code, price, pct, src):
 
 
 def get_vn(symbol, is_index=False):
+    # Thu lan luot: VNDIRECT -> TCBS -> CafeF -> vnstock
     r = vndirect_quote(symbol)
     if r:
         return r[0], r[1], "VNDIRECT"
     r = tcbs_quote(symbol, is_index=is_index)
     if r:
         return r[0], r[1], "TCBS"
+    if is_index:
+        r = cafef_index_quote(symbol)
+        if r:
+            return r[0], r[1], "CafeF"
     r = vnstock_quote(symbol)
     if r:
         return r[0], r[1], r[2]
@@ -195,7 +243,7 @@ def get_vn(symbol, is_index=False):
 def main():
     now = datetime.now(VN_TZ)
     print(f"\n=== DU LIEU GIA THI TRUONG (cap nhat {now.strftime('%d/%m/%Y %H:%M')} gio VN) ===")
-    print("[Nguon: Yahoo Finance (quoc te/USD-VND), VNDIRECT & TCBS (VN). Tham khao, co the tre.]\n")
+    print("[Nguon: Yahoo Finance (quoc te), VNDIRECT/TCBS/CafeF (VN). Tham khao, co the tre.]\n")
 
     print("## CHI SO TRONG NUOC ##")
     for code, label in VN_INDICES:
