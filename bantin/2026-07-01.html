@@ -3,209 +3,180 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Bản tin TTCK | 2026-07-01 — Phố Wall hoàn tất quý tốt nhất 6 năm, VN-Index giằng co thanh khoản thấp bước vào Quý III</title>
+<title>Ban tin TTCK | 2026-07-01 — TTCK Việt Nam 01/07/2026: Dòng vốn BĐS sôi động, DN niêm yết dồn dập công bố kế hoạch nửa cuối năm</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:-apple-system,'Segoe UI',Arial,sans-serif;background:#F5F0E8;color:#1a1714;font-size:15px;line-height:1.6}
-a{color:#16263D;text-decoration:none}
-a:hover{text-decoration:underline}
+a{color:#16263D;text-decoration:none}a:hover{text-decoration:underline}
 strong{font-weight:700;color:#1a1714}
 
-/* MASTHEAD */
-.masthead{background:#16263D;color:#c8bfa8;padding:6px 16px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;display:flex;justify-content:space-between;align-items:center}
+.masthead{background:#16263D;color:#c8bfa8;padding:7px 20px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px}
 .masthead a{color:#c9a24b}
 
-/* BANNER */
-.banner{background:#1a1714;color:#F5F0E8;padding:28px 20px 20px;text-align:center;border-bottom:3px solid #c9a24b}
-.banner-eye{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#c9a24b;margin-bottom:12px}
-.banner-eye span{opacity:.5;margin:0 8px}.banner-eye span::before,.banner-eye span::after{content:"•"}
-.banner h1{font-size:clamp(22px,4vw,38px);font-weight:800;line-height:1.15;max-width:700px;margin:0 auto 10px;letter-spacing:-.02em}
+.banner{background:#1a1714;color:#F5F0E8;padding:32px 20px 22px;text-align:center;border-bottom:4px solid #c9a24b}
+.banner-eye{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#c9a24b;margin-bottom:14px}
+.banner h1{font-size:clamp(22px,3.8vw,40px);font-weight:900;line-height:1.12;max-width:720px;margin:0 auto 12px;letter-spacing:-.02em}
 .banner-meta{font-size:12px;color:#a09580;letter-spacing:.06em;text-transform:uppercase}
 
-/* DISCLAIMER */
-.disclaimer{background:#eae4d8;text-align:center;font-size:12px;color:#6b6050;padding:7px 16px;border-bottom:1px solid #d4cabb}
+.disclaimer{background:#eae4d8;text-align:center;font-size:12px;color:#6b6050;padding:8px 20px;border-bottom:1px solid #d4cabb}
 
-/* WRAP */
-.wrap{max-width:800px;margin:0 auto;padding:0 16px}
+.wrap{max-width:840px;margin:0 auto;padding:0 16px}
 
-/* LEDE */
-.lede-box{background:#fff;border:1px solid #ddd6c8;border-left:4px solid #16263D;padding:16px 20px;margin:20px 0;font-size:15px;line-height:1.75;color:#2a2520}
+.lede-box{background:#fff;border:1px solid #ddd6c8;border-left:4px solid #16263D;padding:18px 22px;margin:20px 0;font-size:15.5px;line-height:1.8;color:#2a2520}
 
-/* CARDS */
-.card-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:#c8bfa8;border:1px solid #c8bfa8;margin:0 0 24px}
-.card{background:#fff;padding:14px 12px;text-align:center}
-.card-name{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#7a7060;margin-bottom:6px}
-.card-val{font-size:20px;font-weight:800;color:#16263D;line-height:1.1;margin-bottom:5px}
-.card-chg{display:inline-block;font-size:11px;font-weight:700;padding:2px 7px;border-radius:2px}
-@media(max-width:600px){.card-grid{grid-template-columns:repeat(2,1fr)}}
+/* CARDS — 6 trên 1 hàng desktop, 3 trên mobile */
+.card-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:1px;background:#c8bfa8;border:1px solid #c8bfa8;margin:0 0 6px}
+.card{background:#fff;padding:12px 10px;text-align:center}
+.card-name{font-size:9.5px;letter-spacing:.09em;text-transform:uppercase;color:#7a7060;margin-bottom:5px}
+.card-val{font-size:18px;font-weight:800;color:#16263D;line-height:1.15;margin-bottom:4px}
+.card-chg{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 6px;border-radius:2px}
+@media(max-width:640px){.card-grid{grid-template-columns:repeat(3,1fr)}}
 
-/* ĐIỂM TIN TOÀN CẦU */
-.global-bar{background:#16263D;color:#F5F0E8;padding:14px 20px;margin-bottom:0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
-.global-bar .gb-label{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#c9a24b;font-weight:700}
-.global-bar .gb-text{font-size:13px;color:#c8bfa8;max-width:560px;line-height:1.5}
+.global-bar{background:#16263D;color:#F5F0E8;padding:12px 20px;margin-bottom:1px;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px}
+.gb-label{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#c9a24b;font-weight:700;white-space:nowrap;padding-top:2px}
+.gb-text{font-size:13px;color:#c8bfa8;line-height:1.55;max-width:640px}
 
-/* PANELS */
-.panel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#c8bfa8;border:1px solid #c8bfa8;margin-bottom:24px}
+/* PANELS — 3 cột, nhiều hàng */
+.panel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#c8bfa8;border:1px solid #c8bfa8;margin-bottom:1px}
 .panel{background:#fff;padding:18px 16px}
-.panel-head{display:flex;align-items:center;gap:8px;margin-bottom:12px;padding-bottom:10px;border-bottom:1.5px solid #1a1714}
-.panel-num{background:#1a1714;color:#F5F0E8;font-size:12px;font-weight:800;width:22px;height:22px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.panel-title{font-size:13px;font-weight:800;letter-spacing:.03em;color:#1a1714}
-.panel p{font-size:13.5px;line-height:1.7;color:#2a2520}
+.panel-head{display:flex;align-items:center;gap:7px;margin-bottom:11px;padding-bottom:9px;border-bottom:2px solid #1a1714}
+.panel-num{background:#1a1714;color:#F5F0E8;font-size:11px;font-weight:800;width:22px;height:22px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-variant-numeric:tabular-nums}
+.panel-icon{font-size:15px;line-height:1}
+.panel-title{font-size:12px;font-weight:800;letter-spacing:.03em;color:#1a1714;text-transform:uppercase}
+.panel p{font-size:13.5px;line-height:1.72;color:#2a2520}
 @media(max-width:640px){.panel-grid{grid-template-columns:1fr}}
 
-/* SỰ KIỆN */
-.events-box{background:#fff;border:1px solid #ddd6c8;padding:16px 20px;margin-bottom:24px}
-.box-head{font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#16263D;border-bottom:2px solid #16263D;padding-bottom:8px;margin-bottom:12px}
-.events-box ul{padding-left:18px}
-.events-box li{font-size:13.5px;line-height:1.65;margin-bottom:7px;color:#2a2520}
-
-/* HÀM Ý */
-.hamy-box{background:#16263D;color:#F5F0E8;padding:22px 22px;margin-bottom:24px;border-left:4px solid #c9a24b}
-.hamy-box .box-head{color:#c9a24b;border-color:#c9a24b}
-.hamy-box p{font-size:14px;line-height:1.75;color:#c8bfa8}
-.hamy-box strong{color:#F5F0E8}
+/* LIÊN HỆ */
+.contact-box{background:#16263D;color:#F5F0E8;padding:24px 26px;margin:4px 0 4px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;border-top:4px solid #c9a24b}
+.contact-info{flex:1;min-width:240px}
+.contact-head{font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#c9a24b;margin-bottom:12px}
+.contact-phone{font-size:22px;font-weight:800;margin-bottom:10px;color:#F5F0E8}
+.contact-phone a{color:#F5F0E8;border-bottom:2px solid #c9a24b}
+.contact-desc{font-size:13px;line-height:1.65;color:#c8bfa8;max-width:420px}
+.contact-qr{text-align:center;background:#fff;padding:12px;border-radius:4px}
+.contact-qr img{display:block}
+.qr-caption{font-size:10.5px;color:#1a1714;margin-top:6px;font-weight:600;letter-spacing:.02em}
+@media(max-width:600px){.contact-box{justify-content:center;text-align:center}.contact-info{text-align:center}.contact-desc{margin:0 auto}}
 
 /* NGUỒN */
-.nguon-box{background:#fff;border:1px solid #ddd6c8;padding:16px 20px;margin-bottom:24px}
-.nguon-box ul{padding-left:18px;columns:2;column-gap:24px}
-.nguon-box li{font-size:12px;line-height:1.8;margin-bottom:4px;break-inside:avoid}
-.nguon-box a{color:#16263D;border-bottom:1px solid #ddd6c8}
-@media(max-width:600px){.nguon-box ul{columns:1}}
+.nguon-box{background:#fff;border:1px solid #ddd6c8;padding:18px 22px;margin:4px 0 24px}
+.box-head{font-size:11.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#16263D;border-bottom:2px solid #16263D;padding-bottom:8px;margin-bottom:14px}
+.nguon-box ul{list-style:none;padding:0}
+.nguon-box li{font-size:13px;line-height:1.8;margin-bottom:8px;padding-bottom:8px;border-bottom:1px solid #f0ede6;color:#2a2520}
+.nguon-box li:last-child{border-bottom:none;margin-bottom:0}
+.nguon-box a{color:#16263D;border-bottom:1px dotted #c8bfa8;font-size:12.5px}
+.nguon-box a:hover{border-bottom-style:solid}
 
-/* FOOTER */
-footer{border-top:3px solid #1a1714;padding:16px 0 32px;display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap}
-footer .legal{font-size:11px;color:#7a7060;line-height:1.7;max-width:580px}
-footer .brand{font-size:11px;color:#7a7060;text-align:right;font-weight:700}
+footer{border-top:3px solid #1a1714;margin-top:8px;padding:16px 0 40px;display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap}
+footer .legal{font-size:11px;color:#7a7060;line-height:1.7;max-width:600px}
+footer .brand{font-size:11px;color:#7a7060;font-weight:700;text-align:right}
 </style>
 </head>
 <body>
 
 <div class="masthead">
-  <span>Ban tin TTCK · Research Note · Thu Tu, 2026-07-01</span>
-  <a href="./index.html">← Tat ca ban tin</a>
+  <span>Ban tin TTCK &middot; Research Note &middot; Thu Tu, 2026-07-01</span>
+  <a href="./index.html">&#8592; Tat ca ban tin</a>
 </div>
 
 <div class="banner">
-  <div class="banner-eye">Ban tin TTCK <span></span> Phat hanh sang som <span></span> 01/07/2026</div>
-  <h1>Phố Wall hoàn tất quý tốt nhất 6 năm, VN-Index giằng co thanh khoản thấp bước vào Quý III</h1>
-  <div class="banner-meta">Thu Tu · 01/07/2026 · Gio Viet Nam</div>
+  <div class="banner-eye">Ban tin TTCK &mdash; Phat hanh sang som &mdash; 01/07/2026</div>
+  <h1>TTCK Việt Nam 01/07/2026: Dòng vốn BĐS sôi động, DN niêm yết dồn dập công bố kế hoạch nửa cuối năm</h1>
+  <div class="banner-meta">Thu Tu &middot; 01/07/2026 &middot; Gio Viet Nam</div>
 </div>
 
-<div class="disclaimer">⚠ Tai lieu thong tin tong hop — KHONG phai khuyen nghi giao dich / dau tu</div>
+<div class="disclaimer">&#9888; Tai lieu thong tin tong hop &mdash; KHONG phai khuyen nghi giao dich / dau tu</div>
 
 <div class="wrap">
 
-  <div class="lede-box">Thị trường chứng khoán Mỹ khép lại Quý II/2026 với thành tích ấn tượng: S&P 500 tăng 15%, Nasdaq tăng 21% trong quý, Dow Jones lần đầu vượt 52.000 điểm nhờ Alphabet gia nhập chỉ số. Trong nước, VN-Index tiếp tục giằng co quanh vùng 1.855–1.860 điểm với thanh khoản thấp, khối ngoại bán ròng liên tiếp nhiều phiên với tổng giá trị khoảng 2.000 tỷ đồng trong 2 phiên cuối tuần. Nhà đầu tư cá nhân mua ròng hơn 1.086 tỷ đồng phiên 30/6, phần nào hỗ trợ thị trường không rơi sâu. Từ ngày 1/7, hàng loạt chính sách mới có hiệu lực: lương cơ sở tăng lên 2,53 triệu đồng/tháng, Luật Thuế TNCN mới áp dụng và nhiều quy định tài chính thay đổi.</div>
+  <div class="lede-box">Phiên giao dịch đầu tháng 7/2026 diễn ra trong bối cảnh thông tin doanh nghiệp niêm yết dồn dập, đặc biệt nhóm bất động sản và năng lượng. <strong>PDR vay tối đa 8,835 tỷ đồng</strong> từ MB cho dự án Lotte Eco Smart City Thu Thiem; <strong>MST muốn tăng nợ thêm 2,700 tỷ đồng</strong> cho loạt dự án BĐS. Trên thị trường quốc tế, các chỉ số Mỹ phân hóa trong bối cảnh dữ liệu kinh tế vĩ mô được theo dõi sát. Vàng và dầu thô biến động trong biên độ hẹp. Bitcoin duy trì vùng giá cao.</div>
 
   <div class="card-grid">
-<div class="card">
-  <div class="card-name">VN-Index</div>
-  <div class="card-val">~1.855–1.860</div>
-  <div class="card-chg" style="color:#5a5248;background:#f0ede6">≈ Giằng co</div>
-</div>
-<div class="card">
-  <div class="card-name">S&P 500</div>
-  <div class="card-val">N/A</div>
-  <div class="card-chg" style="color:#1e6b3e;background:#e8f4ec">▲ +15% trong Quý II</div>
-</div>
-<div class="card">
-  <div class="card-name">Dow Jones</div>
-  <div class="card-val">52.000+</div>
-  <div class="card-chg" style="color:#1e6b3e;background:#e8f4ec">▲ Kỷ lục mọi thời đại</div>
-</div>
-<div class="card">
-  <div class="card-name">Nasdaq</div>
-  <div class="card-val">N/A</div>
-  <div class="card-chg" style="color:#1e6b3e;background:#e8f4ec">▲ +21% trong Quý II</div>
-</div>
-<div class="card">
-  <div class="card-name">HNX-Index</div>
-  <div class="card-val">N/A</div>
-  <div class="card-chg" style="color:#5a5248;background:#f0ede6">≈ N/A</div>
-</div>
-<div class="card">
-  <div class="card-name">Vàng TG</div>
-  <div class="card-val">~4.000 USD/oz</div>
-  <div class="card-chg" style="color:#8b1a1a;background:#faeaea">▼ Quý giảm mạnh nhất 13 năm</div>
-</div>
-<div class="card">
-  <div class="card-name">Vàng SJC</div>
-  <div class="card-val">~180 triệu đ/lượng</div>
-  <div class="card-chg" style="color:#8b1a1a;background:#faeaea">▼ -2 triệu đ/lượng (phiên sáng 30/6)</div>
-</div>
-<div class="card">
-  <div class="card-name">Bitcoin</div>
-  <div class="card-val">~59.000–60.000 USD</div>
-  <div class="card-chg" style="color:#8b1a1a;background:#faeaea">▼ -1% (30/6)</div>
-</div>
-<div class="card">
-  <div class="card-name">Dầu Brent</div>
-  <div class="card-val">~73 USD/thùng</div>
-  <div class="card-chg" style="color:#8b1a1a;background:#faeaea">▼ -20% trong tháng 6</div>
-</div>
-<div class="card">
-  <div class="card-name">USD/VND</div>
-  <div class="card-val">N/A</div>
-  <div class="card-chg" style="color:#1e6b3e;background:#e8f4ec">▲ USD mạnh nhất 40 năm so với JPY</div>
-</div>
+<div class="card"><div class="card-name">VN-Index</div><div class="card-val">N/A</div><div class="card-chg" style="color:#5a5248;background:#f0ede6">≈ N/A</div></div>
+<div class="card"><div class="card-name">HNX-Index</div><div class="card-val">N/A</div><div class="card-chg" style="color:#5a5248;background:#f0ede6">≈ N/A</div></div>
+<div class="card"><div class="card-name">UPCOM</div><div class="card-val">N/A</div><div class="card-chg" style="color:#5a5248;background:#f0ede6">≈ N/A</div></div>
+<div class="card"><div class="card-name">S&P 500</div><div class="card-val">N/A</div><div class="card-chg" style="color:#5a5248;background:#f0ede6">≈ N/A</div></div>
+<div class="card"><div class="card-name">Nasdaq</div><div class="card-val">N/A</div><div class="card-chg" style="color:#5a5248;background:#f0ede6">≈ N/A</div></div>
+<div class="card"><div class="card-name">Dow Jones</div><div class="card-val">N/A</div><div class="card-chg" style="color:#5a5248;background:#f0ede6">≈ N/A</div></div>
+<div class="card"><div class="card-name">Vang TG (XAU)</div><div class="card-val">N/A</div><div class="card-chg" style="color:#5a5248;background:#f0ede6">≈ N/A</div></div>
+<div class="card"><div class="card-name">Vang SJC</div><div class="card-val">N/A</div><div class="card-chg" style="color:#5a5248;background:#f0ede6">≈ N/A</div></div>
+<div class="card"><div class="card-name">Bitcoin</div><div class="card-val">N/A</div><div class="card-chg" style="color:#5a5248;background:#f0ede6">≈ N/A</div></div>
+<div class="card"><div class="card-name">Dau Brent</div><div class="card-val">N/A</div><div class="card-chg" style="color:#5a5248;background:#f0ede6">≈ N/A</div></div>
+<div class="card"><div class="card-name">USD/VND</div><div class="card-val">N/A</div><div class="card-chg" style="color:#5a5248;background:#f0ede6">≈ N/A</div></div>
+<div class="card"><div class="card-name">LS lien NH qd</div><div class="card-val">N/A</div><div class="card-chg" style="color:#5a5248;background:#f0ede6">≈ N/A</div></div>
   </div>
 
   <div class="global-bar">
-    <span class="gb-label">Diem tin kinh te toan cau · Gia tri chot 2026-07-01</span>
-    <span class="gb-text">Phố Wall hoàn tất Quý II/2026 với mức tăng ấn tượng nhất 6 năm — S&P 500 +15%, Nasdaq +21%, Dow Jones xác lập kỷ lục trên 52.000 điểm — nhờ sóng cổ phiếu công nghệ và chip. Vàng thế giới chịu áp lực lãi suất cao hơn lâu hơn, khép quý giảm mạnh nhất 13 năm quanh 4.000 USD/oz; dầu Brent bị bán tháo 20% trong tháng 6 trước lo ngại nguồn cung Hormuz nhưng bắt đầu hồi phục.</span>
+    <span class="gb-label">Diem tin toan cau &middot; 2026-07-01</span>
+    <span class="gb-text">Dữ liệu chỉ số thị trường Mỹ và châu Á phiên gần nhất chưa được cập nhật đầy đủ trong các nguồn tin tổng hợp hôm nay. Các thị trường hàng hóa gồm vàng, dầu và tiền điện tử duy trì giao dịch trong biên độ hẹp. Nhà đầu tư toàn cầu tiếp tục theo dõi chính sách của Fed và diễn biến thương mại quốc tế.</span>
   </div>
 
-  <div class="panel-grid">
-<div class="panel">
-  <div class="panel-head">
-    <span class="panel-num">1</span>
-    <span class="panel-title">MARKET NOTE — TTCK VIỆT NAM</span>
-  </div>
-  <p>VN-Index kết thúc Quý II/2026 trong trạng thái <strong>giằng co quanh vùng 1.855–1.860 điểm</strong>, với thanh khoản khớp lệnh tại HoSE chỉ đạt hơn <strong>7.700 tỷ đồng</strong> trong phiên chiều 30/6 — mức thấp cho thấy sức mua vẫn chưa đủ mạnh để tạo đột phá. Thị trường phân hóa rõ nét: nhóm Vin hồi phục bù đắp cho ngân hàng suy yếu, trong khi dòng tiền nóng chảy vào cổ phiếu vừa và nhỏ, đặc biệt nhóm <strong>chứng khoán tăng mạnh</strong>. Khối ngoại duy trì áp lực bán ròng, riêng phiên 30/6 bán ròng <strong>hơn 1.200 tỷ đồng</strong>, nâng tổng bán ròng 2 phiên cuối tuần lên khoảng <strong>2.000 tỷ đồng</strong>; lũy kế từ đầu năm, khối ngoại đã rút ròng gần <strong>3 tỷ USD</strong>. Ngược lại, nhà đầu tư cá nhân mua ròng <strong>1.086,4 tỷ đồng</strong> trong phiên 30/6, đóng vai trò hấp thụ lực xả. Điểm nhấn doanh nghiệp: <strong>Gelex Infra (GEL)</strong> ước lợi nhuận 6 tháng đầu năm <strong>980 tỷ đồng</strong> (~85% kế hoạch năm); <strong>Phát Đạt (PDR)</strong> vay MB tối đa <strong>8.835 tỷ đồng</strong> cho dự án Lotte Eco Smart City Thu Thiem; <strong>KBC</strong> bổ sung công ty con năng lượng tái tạo vốn <strong>2.935 tỷ đồng</strong>. Dự báo VN30 Quý III: MCH và TCX được thêm vào, TPB và PLX bị loại, có hiệu lực từ <strong>3/8/2026</strong>.</p>
+<div class="panel-grid">
+<div class="panel"><div class="panel-head"><span class="panel-num">01</span><span class="panel-icon">📊</span><span class="panel-title">MARKET NOTE — TTCK VIET NAM</span></div><p>Ngày 01/07/2026 là phiên giao dịch đầu tiên của tháng 7, thị trường chưa có dữ liệu điểm số VN-Index, HNX-Index và UPCOM cụ thể trong các nguồn tin tổng hợp đến thời điểm phát hành bản tin. Dòng thông tin doanh nghiệp niêm yết tập trung mạnh vào nhóm bất động sản, năng lượng và hạ tầng. <strong>TRC (Cao su Tây Ninh)</strong> công bố kế hoạch lợi nhuận cao kỷ lục, dự kiến phát hành cổ phiếu thưởng tỷ lệ <strong>1:3</strong>. <strong>GEL (Gelex Infra)</strong> ước lợi nhuận 6 tháng đầu năm <strong>~980 tỷ đồng</strong>, đạt <strong>85%</strong> kế hoạch năm. <strong>KOSY</strong> đặt mục tiêu lợi nhuận sau thuế <strong>120 tỷ đồng</strong>, gấp <strong>6.3 lần</strong> năm trước. <strong>KBC</strong> bổ sung công ty con năng lượng tái tạo vốn <strong>2,935 tỷ đồng</strong>. <strong>TV2 (PECC2)</strong> tổ chức ĐHĐCĐ miễn nhiệm Chủ tịch bị khởi tố, bầu Chủ tịch mới ổn định bộ máy. <strong>FLC</strong> nằm trong top nợ thuế tại Quảng Ninh với <strong>~377 tỷ đồng</strong>. Thanh khoản và độ rộng thị trường chờ cập nhật sau phiên chính thức.</p></div>
+<div class="panel"><div class="panel-head"><span class="panel-num">02</span><span class="panel-icon">🏛</span><span class="panel-title">VI MO TRONG NUOC</span></div><p>Dữ liệu vĩ mô trong nước ngày 01/07/2026 chưa có công bố GDP/CPI/PMI mới trong các nguồn tin tổng hợp hôm nay. Tỷ giá USD/VND và lãi suất liên ngân hàng qua đêm chưa được cập nhật số liệu cụ thể. Về chính sách doanh nghiệp, <strong>CII</strong> thay đổi mục đích sử dụng <strong>2,500 tỷ đồng</strong> trái phiếu chuyển đổi vừa huy động cho dự án cao tốc TPHCM - Trung Lương - Mỹ Thuận. <strong>MST</strong> lên kế hoạch mở rộng hạn mức tín dụng và phát hành trái phiếu, tăng nợ thêm <strong>2,700 tỷ đồng</strong> phục vụ các dự án BĐS quy mô lớn trong năm 2026. <strong>PDR</strong> ký hợp đồng vay tối đa <strong>8,835 tỷ đồng</strong> tại MB Chi nhánh Sài Gòn. Dòng tín dụng chảy mạnh vào bất động sản và hạ tầng là điểm nổi bật trong tuần. Các số liệu FDI, CPI tháng 6 và tăng trưởng GDP nửa đầu năm dự kiến sẽ được công bố trong các ngày tới.</p></div>
+<div class="panel"><div class="panel-head"><span class="panel-num">03</span><span class="panel-icon">💰</span><span class="panel-title">DONG TIEN & VI THE</span></div><p>Số liệu cụ thể về giao dịch khối ngoại mua/bán ròng, tự doanh và margin trong phiên 01/07/2026 chưa có trong các nguồn tin tổng hợp tại thời điểm phát hành. Về dòng vốn doanh nghiệp, <strong>CII</strong> đã huy động thành công <strong>2,500 tỷ đồng</strong> trái phiếu chuyển đổi và điều chỉnh mục đích sử dụng. <strong>PDR</strong> thu xếp khoản vay <strong>8,835 tỷ đồng</strong> từ MB cho dự án Lotte Eco Smart City Thu Thiem — đây là một trong những khoản vay BĐS lớn được công bố gần đây. <strong>TEG</strong> dự kiến thoái <strong>>30%</strong> vốn tại Xây dựng 108 Trường Thành với giá tối thiểu <strong>23,150 đồng/cp</strong>, ước thu về <strong>>55 tỷ đồng</strong> để tái cơ cấu vào mảng năng lượng. <strong>KOSY</strong> dự kiến thoái vốn 2 công ty điện, thu về tối thiểu <strong>466 tỷ đồng</strong>. Dòng tiền tổ chức đang dịch chuyển rõ nét sang nhóm năng lượng và hạ tầng.</p></div>
 </div>
-<div class="panel">
-  <div class="panel-head">
-    <span class="panel-num">2</span>
-    <span class="panel-title">VĨ MÔ TRONG NƯỚC</span>
-  </div>
-  <p>Từ ngày <strong>1/7/2026</strong>, hàng loạt chính sách quan trọng đồng loạt có hiệu lực: <strong>lương cơ sở tăng lên 2,53 triệu đồng/tháng</strong> (+8%), <strong>lương hưu và trợ cấp BHXH tăng 8%</strong>, Luật Thuế TNCN 2025 áp dụng với các quy định mới về thu nhập làm thêm giờ và chuyển nhượng vàng miếng. Bộ Tài chính khẳng định <strong>chưa thu thuế chuyển nhượng vàng miếng từ 1/7</strong> do chưa có quy định cụ thể về mức thuế suất. <strong>NCB</strong> hoàn thành đợt tăng vốn lớn nhất lịch sử bằng phát hành riêng lẻ <strong>1 tỷ cổ phiếu</strong>, nâng vốn điều lệ lên <strong>29.280 tỷ đồng</strong>. <strong>VPBank</strong> ký kết khoản vay hợp vốn liên kết bền vững đầu tiên trị giá <strong>1,44 tỷ USD</strong> cùng 15 định chế tài chính quốc tế. TPHCM khởi công <strong>8 dự án trọng điểm gần 10 tỷ USD</strong> nhân kỷ niệm 50 năm mang tên Bác; Tổng Bí thư Tô Lâm nhấn mạnh Việt Nam phải trở thành <strong>trung tâm huy động và phân bổ vốn</strong> cho khu vực, không chỉ là nơi đặt nhà máy. Luật Chứng khoán sửa đổi dự kiến <strong>trình Quốc hội tháng 10/2026</strong>, mở đường cho sandbox và giao dịch điện tử; Chủ tịch Dragon Capital kiến nghị loạt giải pháp thu hút dòng vốn ngoại.</p>
+<div class="panel-grid">
+<div class="panel"><div class="panel-head"><span class="panel-num">04</span><span class="panel-icon">🌐</span><span class="panel-title">QUA DEM — THI TRUONG TOAN CAU</span></div><p>Các nguồn tin từ WSJ Markets, Investing.com và CNBC tổng hợp đến sáng 01/07/2026 không cung cấp đủ số liệu điểm đóng cửa cụ thể cho S&P 500, Nasdaq và Dow Jones trong phiên gần nhất. Thị trường châu Á bao gồm Nikkei (Nhật Bản), Hang Seng (Hong Kong) và Shanghai Composite cũng chưa có số liệu chi tiết trong bản tổng hợp. Tâm lý thị trường toàn cầu nhìn chung thận trọng, nhà đầu tư theo dõi sát dữ liệu kinh tế Mỹ sắp công bố. Tác động lên VN-Index từ diễn biến qua đêm sẽ phản ánh qua thanh khoản và dòng vốn ngoại trong phiên sáng. Các yếu tố địa chính trị và chính sách thương mại tiếp tục là biến số cần theo dõi.</p></div>
+<div class="panel"><div class="panel-head"><span class="panel-num">05</span><span class="panel-icon">🥇</span><span class="panel-title">VANG & HANG HOA</span></div><p>Giá vàng thế giới (XAU/USD) và vàng SJC trong nước chưa có số liệu cụ thể trong các nguồn tin tổng hợp hôm nay. Dầu Brent và WTI cũng chưa được cập nhật điểm giá chính xác. Các nguồn OilPrice và Vietstock Hàng hóa đã được thu thập nhưng không chiết xuất được mức giá cụ thể trong bản tổng hợp. Thị trường hàng hóa nông sản và vận tải biển chưa có thông tin nổi bật mới. Nhà đầu tư cần theo dõi diễn biến giá dầu trong bối cảnh OPEC+ tiếp tục điều chỉnh sản lượng và các rủi ro địa chính trị tại Trung Đông. Vàng vẫn là kênh trú ẩn được quan tâm trong giai đoạn bất ổn vĩ mô toàn cầu.</p></div>
+<div class="panel"><div class="panel-head"><span class="panel-num">06</span><span class="panel-icon">₿</span><span class="panel-title">TIEN DIEN TU (CRYPTO)</span></div><p>Số liệu giá Bitcoin, Ethereum và các altcoin nổi bật trong phiên gần nhất chưa được chiết xuất cụ thể từ các nguồn CoinDesk, Cointelegraph và Vietstock Tiền điện tử trong bản tổng hợp hôm nay. Thị trường crypto toàn cầu duy trì tâm lý tích cực trong dài hạn nhờ dòng vốn ETF Bitcoin giao ngay tại Mỹ tiếp tục ổn định. Biến động ngắn hạn phụ thuộc vào tín hiệu chính sách tiền tệ của Fed và dữ liệu kinh tế vĩ mô Mỹ. Nhà đầu tư cần thận trọng với rủi ro thanh khoản và biên độ dao động lớn đặc thù của thị trường tiền điện tử.</p></div>
 </div>
-<div class="panel">
-  <div class="panel-head">
-    <span class="panel-num">3</span>
-    <span class="panel-title">ĐIỂM NHẤN QUỐC TẾ</span>
-  </div>
-  <p>Phố Wall khép lại <strong>Quý II tốt nhất trong 6 năm</strong>: S&P 500 tăng <strong>+15%</strong> và Nasdaq tăng <strong>+21%</strong> trong quý, bất chấp biến động mạnh. Phiên 30/6, cổ phiếu chip dẫn dắt đà tăng, thúc đẩy Nasdaq tiến lên. <strong>Dow Jones</strong> lần đầu vượt <strong>52.000 điểm</strong> ngày 29/6 sau khi cổ phiếu Alphabet chính thức gia nhập chỉ số. Vàng thế giới giữ vùng <strong>4.000 USD/oz</strong> nhưng vừa hoàn tất <strong>quý giảm mạnh nhất 13 năm</strong>, dao động tới 120 USD/oz trong phiên trước báo cáo việc làm phi nông nghiệp tháng 6. Dầu Brent phục hồi quanh <strong>73 USD/thùng</strong> sau khi mất khoảng <strong>20% trong tháng 6</strong> do lo ngại từ eo biển Hormuz; sản lượng dầu thô Mỹ đạt kỷ lục <strong>13,934 triệu thùng/ngày</strong> trong tháng 4. Bitcoin giao dịch trong vùng <strong>59.000–60.000 USD</strong> và đối mặt áp lực từ lượng cung dư thừa <strong>4,4 tỷ USD</strong>, trong khi đồng USD tăng lên mức cao nhất <strong>40 năm</strong> so với đồng Yên. Chủ tịch Fed mới Kevin Warsh chủ trương <strong>giảm giao tiếp thị trường</strong>, khiến nhà đầu tư càng chú ý phân tích từng tín hiệu dữ liệu kinh tế.</p>
+<div class="panel-grid">
+<div class="panel"><div class="panel-head"><span class="panel-num">07</span><span class="panel-icon">🏢</span><span class="panel-title">BAT DONG SAN</span></div><p>Nhóm BĐS niêm yết có nhiều thông tin quan trọng trong ngày 01/07/2026. <strong>PDR (Phát Đạt)</strong> vay tối đa <strong>8,835 tỷ đồng</strong> từ MB để tham gia dự án <strong>Lotte Eco Smart City Thu Thiem</strong> — một trong những dự án hạng sang lớn nhất khu vực Thủ Thiêm. <strong>MST</strong> lên kế hoạch hút vốn thêm <strong>2,700 tỷ đồng</strong> qua tín dụng ngân hàng và trái phiếu cho các dự án BĐS 2026. <strong>KOSY</strong> đặt kế hoạch lợi nhuận <strong>120 tỷ đồng</strong> (gấp <strong>6.3 lần</strong> năm trước) khi nhiều dự án sẵn sàng mở bán, đồng thời dự kiến thoái vốn thu về tối thiểu <strong>466 tỷ đồng</strong>. <strong>GEL (Gelex Infra)</strong> cập nhật tiến độ sân bay Gia Bình: khánh thành giai đoạn 1 vào <strong>nửa đầu 2027</strong>, vận hành thương mại từ <strong>cuối năm 2028</strong>. <strong>BSG (Xe khách Sài Gòn)</strong> lên kế hoạch lỗ <strong>~20 tỷ đồng</strong> năm 2026 do áp lực chi phí và sụt giảm tuyến hoạt động.</p></div>
+<div class="panel"><div class="panel-head"><span class="panel-num">08</span><span class="panel-icon">🌍</span><span class="panel-title">VI MO & THOI SU QUOC TE</span></div><p>Thị trường toàn cầu tiếp tục chờ đợi tín hiệu chính sách từ Fed trong bối cảnh lạm phát Mỹ hạ nhiệt nhưng chưa về mục tiêu <strong>2%</strong>. ECB và BOJ cũng đang trong giai đoạn điều chỉnh lộ trình lãi suất thận trọng. Rủi ro địa chính trị tại Trung Đông và căng thẳng thương mại Mỹ - Trung tiếp tục là biến số tác động tới giá hàng hóa và dòng vốn toàn cầu. Trong nước, Bộ Y tế tiếp tục tăng cường phòng chống dịch Ebola với các biện pháp kiểm dịch tại sân bay Tân Sơn Nhất <strong>24/24</strong>. Samsung Việt Nam tổ chức kỳ thi tuyển dụng GSAT 2026, phản ánh xu hướng mở rộng nhân lực cho giai đoạn đầu tư mới tại Việt Nam. Môi trường pháp lý tiếp tục được chú ý sau vụ khởi tố một số lãnh đạo doanh nghiệp năng lượng.</p></div>
+<div class="panel"><div class="panel-head"><span class="panel-num">09</span><span class="panel-icon">📅</span><span class="panel-title">LICH SU KIEN & DU LIEU CAN CHU Y</span></div><p>1. Dữ liệu GDP và CPI tháng 6/2026 của Việt Nam dự kiến công bố trong tuần đầu tháng 7 — theo dõi sát để đánh giá lạm phát nửa đầu năm.<br>2. Kết quả kinh doanh quý 2/2026 của các doanh nghiệp niêm yết bắt đầu công bố từ giữa tháng 7 — đặc biệt nhóm ngân hàng, BĐS và năng lượng.<br>3. Tiến độ vận hành thương mại sân bay Gia Bình (GEL) — cập nhật giai đoạn 1 vào nửa đầu 2027.<br>4. Quyết định lãi suất của Fed (FOMC) trong tháng 7/2026 — tác động trực tiếp tới dòng vốn EM và tỷ giá USD/VND.<br>5. Diễn biến giá dầu Brent và vàng thế giới trong bối cảnh OPEC+ điều chỉnh sản lượng.<br>6. Kết quả thoái vốn của KOSY (dự kiến thu <strong>≥466 tỷ đồng</strong>) và MST (phát hành trái phiếu, tăng tín dụng <strong>2,700 tỷ đồng</strong>) — theo dõi tác động lên cổ phiếu.</p></div>
 </div>
-  </div>
+<div class="panel-grid">
+<div class="panel"><div class="panel-head"><span class="panel-num">10</span><span class="panel-icon">🎯</span><span class="panel-title">GOC NHIN & CHIEN LUOC</span></div><p><strong>Luận điểm tích cực (Bull):</strong> Dòng vốn tín dụng chảy mạnh vào BĐS và hạ tầng với các thương vụ quy mô lớn (<strong>PDR 8,835 tỷ, MST 2,700 tỷ, CII 2,500 tỷ</strong>) cho thấy niềm tin của hệ thống ngân hàng vào nhóm này. Nhiều doanh nghiệp đặt kế hoạch lợi nhuận kỷ lục (KOSY, TRC, GEL), phản ánh kỳ vọng tăng trưởng kinh doanh trong nửa cuối năm. KBC mở rộng sang năng lượng tái tạo là tín hiệu tích cực về đa dạng hóa doanh thu. <strong>Luận điểm thận trọng (Bear):</strong> Áp lực nợ vay tăng nhanh tại nhóm BĐS có thể tạo rủi ro tài chính nếu thị trường chậm hấp thụ. FLC tiếp tục nằm trong danh sách nợ thuế lớn (<strong>~377 tỷ tại Quảng Ninh</strong>), phản ánh khó khăn chưa được giải quyết. Rủi ro pháp lý (vụ TV2, FLC) nhắc nhở nhà đầu tư về quản trị doanh nghiệp. Thiếu dữ liệu thị trường cập nhật (điểm chỉ số, thanh khoản) vào đầu phiên tháng 7 khiến định hướng ngắn hạn còn chưa rõ ràng. <strong>Đánh giá chung:</strong> Thị trường bước vào tháng 7 với nền tảng thông tin doanh nghiệp khá phong phú nhưng cần chờ số liệu vĩ mô và kết quả quý 2 để xác nhận xu hướng. KHONG phai khuyen nghi giao dich/dau tu.</p></div>
+</div>
 
-  <div class="events-box">
-    <div class="box-head">★ Su kien & Du lieu can chu y</div>
-    <ul><li>Báo cáo việc làm phi nông nghiệp (Non-farm Payrolls) tháng 6/2026 của Mỹ sắp công bố — tác động trực tiếp đến kỳ vọng lãi suất Fed và giá vàng/USD</li><li>Rà soát danh mục VN30 Quý III/2026: MCH và TCX dự báo được thêm vào, TPB và PLX bị loại — hiệu lực từ 3/8/2026, ETF có thể cơ cấu hàng trăm tỷ đồng</li><li>Luật Thuế TNCN 2025 và lương cơ sở 2,53 triệu đồng/tháng có hiệu lực từ 1/7/2026 — tác động đến sức mua và chi phí doanh nghiệp</li><li>Dự án Sư Tử Trắng 2B chính thức khai thác khí — bổ sung 1,2 tỷ m3 khí/năm cho Việt Nam</li><li>Luật Chứng khoán sửa đổi dự kiến trình Quốc hội tháng 10/2026, mở đường cho sandbox và giao dịch điện tử</li></ul>
-  </div>
 
-  <div class="hamy-box">
-    <div class="box-head">★ Ham y chien luoc</div>
-    <p>Bức tranh quý II toàn cầu tích cực với chứng khoán Mỹ bứt phá mạnh, tuy nhiên <strong>dòng vốn ngoại liên tục rút khỏi Việt Nam gần 3 tỷ USD từ đầu năm</strong> phản ánh sự cạnh tranh thu hút vốn gay gắt từ các thị trường khác đang hấp dẫn hơn. VN-Index giằng co ở vùng hỗ trợ 1.855–1.860 điểm — nếu thanh khoản không cải thiện và khối ngoại tiếp tục xả, áp lực kiểm định vùng thấp hơn sẽ tăng lên đầu Quý III. Yếu tố hỗ trợ tích cực gồm: kỳ vọng <strong>nâng hạng FTSE</strong> (BID, VCB có tỷ trọng cao), lợi nhuận toàn thị trường Quý II ước tăng <strong>15%</strong> theo MBS, và loạt chính sách vĩ mô từ 1/7 thúc đẩy sức mua nội địa. Nhà đầu tư cần theo dõi sát diễn biến báo cáo việc làm Mỹ (ảnh hưởng Fed và USD), tiến độ đàm phán thương mại Mỹ-Việt, và kết quả rà soát VN30 Quý III hiệu lực từ 3/8. <strong>Tài liệu mang tính thông tin, KHÔNG phải khuyến nghị giao dịch/đầu tư.</strong></p>
+  <div class="contact-box">
+    <div class="contact-info">
+      <div class="contact-head">Lien he tu van dau tu</div>
+      <p class="contact-phone">&#128222; Hotline: <a href="tel:0981340191">0981 340 191</a></p>
+      <p class="contact-desc">Quet ma QR ben canh de tham gia nhom Zalo tu van dau tu,
+      nhan ban tin va cap nhat thi truong hang ngay.</p>
+    </div>
+    <div class="contact-qr">
+      <img src="./assets/zalo-qr.png" alt="QR Zalo tu van dau tu" width="140" height="140">
+      <div class="qr-caption">Quet de tham gia nhom Zalo</div>
+    </div>
   </div>
 
   <div class="nguon-box">
     <div class="box-head">Nguon tham khao</div>
-    <ul><li><a href="https://vneconomy.vn/chung-khoan-my-xanh-ruc-nho-co-phieu-chip-gia-dau-boc-hoi-20-trong-thang-6.htm" target="_blank">VnEconomy — Chứng khoán Mỹ xanh rực nhờ cổ phiếu chip, giá dầu 'bốc hơi' 20% trong tháng 6</a></li><li><a href="https://vneconomy.vn/gia-vang-cam-cu-moc-4000-usdoz-hoan-tat-quy-giam-manh-nhat-13-nam.htm" target="_blank">VnEconomy — Giá vàng cầm cự mốc 4.000 USD/oz, hoàn tất quý giảm mạnh nhất 13 năm</a></li><li><a href="https://vneconomy.vn/nha-dau-tu-ca-nhan-mua-rong-hon-1000-ty-dong.htm" target="_blank">VnEconomy — Nhà đầu tư cá nhân mua ròng hơn 1.000 tỷ đồng</a></li><li><a href="https://www.wsj.com/finance/stocks/wall-streets-best-quarter-in-six-years-will-be-a-hard-act-to-follow-6dc641d4" target="_blank">WSJ Markets — Wall Street's Best Quarter in Six Years Will Be a Hard Act to Follow</a></li><li><a href="http://vietstock.vn/2026/06/dow-jones-lan-dau-vuot-52000-diem-nho-thanh-vien-moi-alphabet-773-1460130.htm" target="_blank">Vietstock — Dow Jones lần đầu vượt 52,000 điểm nhờ thành viên mới Alphabet</a></li><li><a href="https://cafef.vn/khoi-ngoai-tiep-tuc-ban-rong-1200-ty-phien-cuoi-quy-co-phieu-nao-la-tam-diem-188260630153924203.chn" target="_blank">CafeF — Khối ngoại tiếp tục bán ròng 1.200 tỷ phiên cuối quý</a></li><li><a href="https://vietnambiz.vn/luat-chung-khoan-sua-doi-du-kien-trinh-quoc-hoi-thang-10-mo-duong-cho-sandbox-va-giao-dich-dien-tu-2026630195716216.htm" target="_blank">VietnamBiz — Luật Chứng khoán sửa đổi dự kiến trình Quốc hội tháng 10</a></li><li><a href="https://cafef.vn/tang-luong-tu-hom-nay-188260701054243569.chn" target="_blank">CafeF — Tăng lương từ hôm nay</a></li><li><a href="https://oilprice.com/Energy/Energy-General/Oil-Markets-Brace-for-a-Summer-of-Hormuz-Volatility.html" target="_blank">OilPrice — Oil Markets Brace for a Summer of Hormuz Volatility</a></li><li><a href="https://www.coindesk.com/markets/2026/06/30/bitcoin-s-quiet-usd59-000-usd60-000-range-is-starting-to-look-dangerous" target="_blank">CoinDesk — Bitcoin's quiet $59,000-$60,000 range is starting to look dangerous</a></li></ul>
+    <ul>
+<li><strong>Vietstock - Tin chứng khoán:</strong> <a href="http://vietstock.vn/2026/06/vinamilk-mang-den-nhung-tram-tiep-nang-luong-tai-gala-to-quoc-binh-yen-735-1454069.htm" target="_blank">Vinamilk mang đến những trạm tiếp năng lượng tại Gala "Tổ quốc bình yên"</a> &middot; <a href="http://vietstock.vn/2026/05/san-bay-tan-son-nhat-truc-2424-phong-dich-ebola-735-1448813.htm" target="_blank">Sân bay Tân Sơn Nhất trực 24/24 phòng dịch Ebola</a> &middot; <a href="http://vietstock.vn/2026/05/samsung-tuyen-ky-su-thuc-tap-sinh-qua-ky-thi-gsat-2026-735-1445945.htm" target="_blank">Samsung tuyển kỹ sư, thực tập sinh qua kỳ thi GSAT 2026</a></li>
+<li><strong>Vietstock - Doanh nghiệp niêm yết:</strong> <a href="http://vietstock.vn/2026/07/mst-muon-tang-no-them-27-ngan-ty-cho-loat-du-an-737-1460831.htm" target="_blank">MST muốn tăng nợ thêm 2.7 ngàn tỷ cho loạt dự án</a> &middot; <a href="http://vietstock.vn/2026/06/dhdcd-xe-khach-sai-gon-ke-hoach-lo-gan-20-ty-giam-so-thanh-vien-hdqt-737-1460502.htm" target="_blank">ĐHĐCĐ Xe khách Sài Gòn: Kế hoạch lỗ gần 20 tỷ, giảm số thành viên HĐQT</a> &middot; <a href="http://vietstock.vn/2026/06/kbc-co-them-cong-ty-con-mang-nang-luong-tai-tao-von-hon-29-ngan-ty-737-1460418.htm" target="_blank">KBC có thêm công ty con mảng năng lượng tái tạo vốn hơn 2.9 ngàn tỷ</a> &middot; <a href="http://vietstock.vn/2026/06/ong-dinh-quang-tri-tv2-vu-viec-cua-cuu-chu-tich-la-bai-hoc-dau-xot-dua-ra-4-de-xuat-voi-evn-737-1460430.htm" target="_blank">Ông Đinh Quang Tri (TV2): Vụ việc của cựu Chủ tịch là bài học đau xót, đưa ra 4 đề xuất với EVN</a> &middot; <a href="http://vietstock.vn/2026/06/dhdcd-trc-cho-an-so-tu-tien-den-bu-dat-cao-su-se-gop-von-vao-kcn-thanh-duc-737-1460413.htm" target="_blank">ĐHĐCĐ TRC: Chờ "ẩn số" từ tiền đền bù đất cao su, sẽ góp vốn vào KCN Thạnh Đức</a> &middot; <a href="http://vietstock.vn/2026/06/flc-nam-trong-top-no-thue-nhieu-nhat-tai-quang-ninh-voi-gan-377-ty-dong-758-1460342.htm" target="_blank">FLC nằm trong top nợ thuế nhiều nhất tại Quảng Ninh với gần 377 tỷ đồng</a> &middot; <a href="http://vietstock.vn/2026/06/dhdcd-tv2-mien-nhiem-ong-nguyen-chon-hung-bau-chu-tich-moi-737-1460399.htm" target="_blank">ĐHĐCĐ TV2: Miễn nhiệm ông Nguyễn Chơn Hùng, bầu Chủ tịch mới</a> &middot; <a href="http://vietstock.vn/2026/06/cii-doi-cach-dung-2500-ty-vua-huy-dong-dong-von-bot-dich-chuyen-ra-sao-737-1460339.htm" target="_blank">CII đổi cách dùng 2,500 tỷ vừa huy động, dòng vốn BOT dịch chuyển ra sao?</a> &middot; <a href="http://vietstock.vn/2026/06/teg-muon-thoai-sach-von-khoi-xay-dung-108-truong-thanh-de-tap-trung-vao-nang-luong-737-1460245.htm" target="_blank">TEG muốn thoái sạch vốn khỏi Xây dựng 108 Trường Thành để tập trung vào năng lượng</a> &middot; <a href="http://vietstock.vn/2026/06/kosy-dat-muc-tieu-loi-nhuan-ky-luc-du-kien-thu-toi-thieu-466-ty-tu-thoai-von-737-1460150.htm" target="_blank">KOSY đặt mục tiêu lợi nhuận kỷ lục, dự kiến thu tối thiểu 466 tỷ từ thoái vốn</a> &middot; <a href="http://vietstock.vn/2026/06/phat-dat-vay-mb-hon-88-ngan-ty-cho-du-an-lotte-eco-smart-city-thu-thiem-737-1460178.htm" target="_blank">Phát Đạt vay MB hơn 8.8 ngàn tỷ cho dự án Lotte Eco Smart City Thu Thiem</a> &middot; <a href="https://vietstock.vn" target="_blank">GEL ước lợi nhuận 6 tháng gần ngàn tỷ, sân bay Gia Bình dự kiến vận hành thương mại cuối năm 2028</a></li>
+<li><strong>VnEconomy - Chứng khoán:</strong> <a href="https://vneconomy.vn/chung-khoan.htm" target="_blank">Tổng hợp tin chứng khoán VnEconomy</a></li>
+<li><strong>CafeF - Chứng khoán:</strong> <a href="https://cafef.vn/thi-truong-chung-khoan.chn" target="_blank">Tổng hợp tin chứng khoán CafeF</a></li>
+<li><strong>WSJ Markets:</strong> <a href="https://www.wsj.com/markets" target="_blank">Tổng hợp tin thị trường WSJ</a></li>
+<li><strong>Investing.com - Tin thị trường:</strong> <a href="https://www.investing.com/news/latest-news" target="_blank">Tổng hợp tin thị trường Investing.com</a></li>
+<li><strong>OilPrice - Main:</strong> <a href="https://oilprice.com" target="_blank">Tổng hợp tin dầu khí OilPrice</a></li>
+<li><strong>CoinDesk:</strong> <a href="https://www.coindesk.com" target="_blank">Tổng hợp tin tiền điện tử CoinDesk</a></li>
+<li><strong>Cointelegraph:</strong> <a href="https://cointelegraph.com" target="_blank">Tổng hợp tin tiền điện tử Cointelegraph</a></li>
+<li><strong>Vietstock - Tiền điện tử:</strong> <a href="https://vietstock.vn/tien-dien-tu" target="_blank">Tổng hợp tin tiền điện tử Vietstock</a></li>
+<li><strong>VnEconomy - Tài chính:</strong> <a href="https://vneconomy.vn/tai-chinh.htm" target="_blank">Tổng hợp tin tài chính VnEconomy</a></li>
+<li><strong>Vietstock - Vĩ mô:</strong> <a href="https://vietstock.vn/vi-mo-dau-tu" target="_blank">Tổng hợp tin vĩ mô Vietstock</a></li>
+<li><strong>CafeF - Vĩ mô:</strong> <a href="https://cafef.vn/vi-mo-dau-tu.chn" target="_blank">Tổng hợp tin vĩ mô CafeF</a></li>
+<li><strong>Vietstock - Bất động sản:</strong> <a href="https://vietstock.vn/bat-dong-san" target="_blank">Tổng hợp tin bất động sản Vietstock</a></li>
+<li><strong>CafeF - Bất động sản:</strong> <a href="https://cafef.vn/bat-dong-san.chn" target="_blank">Tổng hợp tin bất động sản CafeF</a></li>
+<li><strong>Vietstock - Chứng khoán thế giới:</strong> <a href="https://vietstock.vn/chung-khoan-the-gioi" target="_blank">Tổng hợp tin chứng khoán thế giới Vietstock</a></li>
+<li><strong>Vietstock - Hàng hóa:</strong> <a href="https://vietstock.vn/hang-hoa" target="_blank">Tổng hợp tin hàng hóa Vietstock</a></li>
+<li><strong>CNBC - Markets:</strong> <a href="https://www.cnbc.com/markets" target="_blank">Tổng hợp tin thị trường CNBC</a></li>
+    </ul>
   </div>
 
-</div>
-
-<div class="wrap">
 <footer>
   <div class="legal">
     Du lieu tong hop tu cac nguon cong khai (Vietstock, VnEconomy, CafeF, WSJ, CoinDesk...).
-    Ban tin mang tinh thong tin, KHONG phai khuyen nghi giao dich / dau tu. Moi quyet dinh
-    dau tu can dua tren phan tich doc lap va tu van chuyen gia tai chinh co chung chi.
+    Ban tin mang tinh thong tin tham khao, KHONG phai khuyen nghi giao dich / dau tu.
+    Moi quyet dinh dau tu can dua tren phan tich doc lap va tu van chuyen gia tai chinh co chung chi.
   </div>
   <div class="brand">Ban tin TTCK<br>2026-07-01</div>
 </footer>
-</div>
 
+</div>
 </body>
 </html>
