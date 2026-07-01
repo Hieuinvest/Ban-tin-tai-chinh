@@ -100,22 +100,70 @@ def call_api(messages, api_key):
     raise last_err
 
 
-def get_json_data(raw_data, date_human, api_key):
-    user_msg = (
-        f"Hôm nay {date_human} (giờ VN). Dữ liệu tin tức:\n\n{raw_data}\n\n"
-        "Trả về JSON theo schema đã định, CHỈ JSON, không gì khác."
-    )
-    data = call_api([{"role": "user", "content": user_msg}], api_key)
-    text = "".join(b["text"] for b in data.get("content", []) if b.get("type") == "text")
+def _clean_json_text(text: str) -> str:
+    """Làm sạch text trước khi parse JSON."""
     text = unicodedata.normalize("NFC", text.strip())
-    # Xóa code fence nếu có
+    # Xóa code fence
     text = re.sub(r'^```(?:json)?\s*', '', text, flags=re.MULTILINE)
     text = re.sub(r'\s*```$', '', text, flags=re.MULTILINE)
-    # Tìm JSON object trong text
-    m = re.search(r'\{[\s\S]*\}', text)
-    if m:
-        text = m.group(0)
-    return json.loads(text)
+    text = text.strip()
+    # Tìm JSON object (từ { đầu tiên đến } cuối cùng)
+    start = text.find('{')
+    end   = text.rfind('}')
+    if start != -1 and end != -1 and end > start:
+        text = text[start:end+1]
+    return text
+
+
+def get_json_data(raw_data, date_human, api_key):
+    """Gọi Claude lấy JSON. Nếu parse lỗi, gọi lần 2 yêu cầu sửa."""
+    user_msg = (
+        f"Hôm nay {date_human} (giờ VN). Du lieu tin tuc:\n\n{raw_data}\n\n"
+        "Tra ve JSON theo schema da dinh, CHI JSON, khong gi khac. "
+        "JSON PHAI hop le 100%: escape dau ngoac kep trong string bang \\\", "
+        "khong duoc co newline that su trong string (dung \\n neu can), "
+        "khong co text nao truoc { hoac sau }."
+    )
+    messages = [{"role": "user", "content": user_msg}]
+
+    for attempt in range(1, 4):  # thử tối đa 3 lần
+        resp_data = call_api(messages, api_key)
+        raw_text  = "".join(
+            b["text"] for b in resp_data.get("content", []) if b.get("type") == "text"
+        )
+        text = _clean_json_text(raw_text)
+
+        try:
+            return json.loads(text)
+        except json.JSONDecodeError as e:
+            print(f"[LỖI JSON lần {attempt}] {e}. Đang yêu cầu Claude sửa...", flush=True)
+            if attempt < 3:
+                # Gửi lại cho Claude, kèm đoạn lỗi để nó tự sửa
+                messages.append({"role": "assistant", "content": raw_text})
+                messages.append({
+                    "role": "user",
+                    "content": (
+                        f"JSON ban vua tra ve bi loi cu phap: {e}. "
+                        "Hay sua lai va tra ve JSON hop le hoan toan. "
+                        "CHI JSON, bat dau bang {{ va ket thuc bang }}, khong co gi khac."
+                    )
+                })
+
+    # Fallback: trả về dữ liệu tối thiểu để bản tin vẫn được tạo ra (không crash)
+    print("[CANH BAO] Khong parse duoc JSON sau 3 lan thu, dung fallback.", file=sys.stderr)
+    return {
+        "tieu_de": f"Ban tin TTCK {date_human}",
+        "tom_tat": "Khong lay duoc du lieu tu dong. Vui long xem lai log de kiem tra nguon tin.",
+        "toan_cau": "",
+        "chi_so": [],
+        "panels": [
+            {"so": "1", "tieu_de": "Thong bao", "noi_dung":
+             "He thong gap su co khi xu ly du lieu. Ban tin se duoc cap nhat lai trong phien tiep theo."}
+        ],
+        "ham_y": "Khong co du lieu. Khong phai khuyen nghi giao dich/dau tu.",
+        "su_kien": [],
+        "nguon": [],
+    }
 
 
 def bold_to_html(s):
