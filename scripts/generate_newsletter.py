@@ -131,12 +131,23 @@ def call_claude(user_content: str, api_key: str) -> str:
 
 
 def clean_html(text: str) -> str:
+    """Bỏ markdown code fence nếu model lỡ bọc trong ```html, rồi chuẩn hóa Unicode."""
+    import unicodedata
     t = text.strip()
     if t.startswith("```"):
         t = t.split("\n", 1)[1] if "\n" in t else t
         if t.endswith("```"):
             t = t.rsplit("```", 1)[0]
-    return t.strip()
+    # NFC: đảm bảo dấu tiếng Việt gắn liền ký tự (tránh lỗi hiển thị dấu rời)
+    t = unicodedata.normalize("NFC", t.strip())
+    # Đảm bảo <meta charset="utf-8"> là dòng đầu tiên trong <head>
+    META = '<meta charset="utf-8">'
+    if "<head>" in t:
+        # Xóa mọi meta charset cũ, rồi chèn lại ngay sau <head>
+        import re
+        t = re.sub(r'<meta\s+charset=["\'][^"\']*["\'][^>]*>', "", t, flags=re.IGNORECASE)
+        t = t.replace("<head>", f"<head>\n{META}", 1)
+    return t
 
 
 def update_index(output_dir: str, date_str: str, title: str):
