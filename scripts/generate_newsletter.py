@@ -9,7 +9,7 @@ from datetime import datetime, timezone, timedelta
 API_URL     = "https://api.anthropic.com/v1/messages"
 MODEL       = "claude-sonnet-4-6"
 VN_TZ       = timezone(timedelta(hours=7))
-MAX_TOKENS  = 20000
+MAX_TOKENS  = 12000
 API_TIMEOUT = 600
 API_RETRIES = 3
 
@@ -25,6 +25,16 @@ QUAN TRỌNG VỀ SỐ LIỆU:
 - Nếu nguồn nêu biến động % → dùng ngay, nếu nêu 2 mức giá → tính % nếu được
 - Nếu thực sự không có số liệu → dùng "N/A", không bịa
 - Dùng **text** để in đậm số liệu quan trọng trong noi_dung
+- Nếu phần đầu dữ liệu có mục "DỮ LIỆU GIÁ THỊ TRƯỜNG" (từ vnstock), ƯU TIÊN dùng
+  các con số đó cho thẻ chỉ số (VN-Index, HNX, cổ phiếu...) thay vì để N/A.
+
+QUAN TRỌNG VỀ TÁC ĐỘNG (bắt buộc):
+- Khi đưa mỗi tin quan trọng, PHẢI nêu rõ tin đó tác động đến CỔ PHIẾU cụ thể (mã) hoặc
+  NGÀNH nào, theo hướng tích cực hay tiêu cực. Ví dụ: "giá dầu Brent tăng → tích cực cho
+  nhóm dầu khí (**GAS, PVD, PVS, BSR**), tiêu cực cho vận tải/hàng không (**HVN, VJC**)".
+- Ưu tiên nêu mã cổ phiếu Việt Nam liên quan trực tiếp. Nếu tin vĩ mô/quốc tế, quy về
+  nhóm ngành VN hưởng lợi hoặc chịu ảnh hưởng.
+- Đây là phân tích tác động khách quan, KHÔNG phải khuyến nghị mua/bán mã cụ thể.
 
 SCHEMA:
 {
@@ -223,15 +233,23 @@ def bold_to_html(s):
 
 
 def render_card(c):
+    gia_tri = str(c.get("gia_tri", "")).strip()
+    # Bỏ qua thẻ không có dữ liệu (N/A) để không hiện một loạt thẻ trống xấu
+    if not gia_tri or gia_tri.upper() in ("N/A", "NA", "-", "..."):
+        return ""
     xu  = c.get("xu_huong", "flat")
     clr = "#1e6b3e" if xu=="up" else ("#8b1a1a" if xu=="down" else "#5a5248")
     bg  = "#e8f4ec" if xu=="up" else ("#faeaea" if xu=="down" else "#f0ede6")
     arr = "▲" if xu=="up" else ("▼" if xu=="down" else "≈")
+    thay_doi = str(c.get("thay_doi", "")).strip()
+    chg_html = ""
+    if thay_doi and thay_doi.upper() not in ("N/A", "NA", "-"):
+        chg_html = f'<div class="card-chg" style="color:{clr};background:{bg}">{arr} {thay_doi}</div>'
     return (
         f'<div class="card">'
         f'<div class="card-name">{c["ten"]}</div>'
-        f'<div class="card-val">{c["gia_tri"]}</div>'
-        f'<div class="card-chg" style="color:{clr};background:{bg}">{arr} {c["thay_doi"]}</div>'
+        f'<div class="card-val">{gia_tri}</div>'
+        f'{chg_html}'
         f'</div>'
     )
 
@@ -267,15 +285,39 @@ def render_nguon(nguon_list):
     return "\n".join(rows)
 
 
+def render_section_full(s):
+    """Render mục cuối dạng vùng riêng full-width (không chia cột)."""
+    return (
+        f'<div class="panel-full">'
+        f'<div class="panel-head">'
+        f'<span class="panel-num">{s["so"]}</span>'
+        f'<span class="panel-icon">{s.get("icon","")}</span>'
+        f'<span class="panel-title">{s["tieu_de"].upper()}</span>'
+        f'</div>'
+        f'<p>{bold_to_html(s["noi_dung"])}</p>'
+        f'</div>'
+    )
+
+
 def render_html(d, date_str, date_human, weekday_vn):
     cards_html    = "\n".join(render_card(c) for c in d.get("chi_so", []))
     sections      = d.get("sections", [])
-    # Chia sections thành các hàng 3 cột
+
+    # Tách mục cuối ra vùng riêng full-width; các mục còn lại chia 3 cột
+    full_html = ""
+    grid_sections = sections
+    if sections:
+        last = sections[-1]
+        grid_sections = sections[:-1]
+        full_html = render_section_full(last)
+
     rows_html = ""
-    for i in range(0, len(sections), 3):
-        chunk = sections[i:i+3]
+    for i in range(0, len(grid_sections), 3):
+        chunk = grid_sections[i:i+3]
         panels = "\n".join(render_section(s) for s in chunk)
         rows_html += f'<div class="panel-grid">\n{panels}\n</div>\n'
+    # Ghép vùng full-width của mục cuối vào sau lưới
+    rows_html += full_html
 
     nguon_html  = render_nguon(d.get("nguon", []))
     tom_tat     = bold_to_html(d.get("tom_tat", ""))
@@ -328,6 +370,12 @@ strong{{font-weight:700;color:#1a1714}}
 .panel-title{{font-size:12px;font-weight:800;letter-spacing:.03em;color:#1a1714;text-transform:uppercase}}
 .panel p{{font-size:13.5px;line-height:1.72;color:#2a2520}}
 @media(max-width:640px){{.panel-grid{{grid-template-columns:1fr}}}}
+
+/* MỤC CUỐI — full width, nổi bật */
+.panel-full{{background:#fff;border:1px solid #c8bfa8;border-top:4px solid #c9a24b;padding:24px 28px;margin-bottom:1px}}
+.panel-full .panel-head{{border-bottom:2px solid #16263D}}
+.panel-full .panel-title{{font-size:15px;color:#16263D}}
+.panel-full p{{font-size:14.5px;line-height:1.8;color:#2a2520}}
 
 /* LIÊN HỆ */
 .contact-box{{background:#16263D;color:#F5F0E8;padding:24px 26px;margin:4px 0 4px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;border-top:4px solid #c9a24b}}
@@ -388,7 +436,7 @@ footer .brand{{font-size:11px;color:#7a7060;font-weight:700;text-align:right}}
   <div class="contact-box">
     <div class="contact-info">
       <div class="contact-head">Lien he tu van dau tu</div>
-      <p class="contact-phone">&#128222; Hotline: <a href="tel:0981340191">0981 340 191</a></p>
+      <p class="contact-phone">&#128222; Hotline: <a href="tel:0981340191">0981340191</a></p>
       <p class="contact-desc">Quet ma QR ben canh de tham gia nhom Zalo tu van dau tu,
       nhan ban tin va cap nhat thi truong hang ngay.</p>
     </div>
