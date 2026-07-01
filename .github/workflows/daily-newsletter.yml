@@ -18,16 +18,25 @@ jobs:
     - name: Cài đặt Python
       uses: actions/setup-python@v5
       with:
-        python-version: '3.10'
+        python-version: '3.11'
     - name: Cài đặt thư viện phụ thuộc
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-    - name: Thu thập dữ liệu nguồn
+    - name: Thu thập dữ liệu tin tức (RSS)
       run: |
         python scripts/fetch_sources.py > raw_sources.txt
         echo "--- Xem trước raw_sources.txt ---"
-        head -n 40 raw_sources.txt
+        head -n 20 raw_sources.txt
+    - name: Thu thập dữ liệu giá thị trường (vnstock)
+      continue-on-error: true
+      run: |
+        python scripts/fetch_market_data.py > market_data.txt
+        echo "--- Xem trước market_data.txt ---"
+        cat market_data.txt
+        # Ghép dữ liệu giá vào đầu file nguồn để Claude ưu tiên dùng
+        cat market_data.txt raw_sources.txt > combined.txt
+        mv combined.txt raw_sources.txt
     - name: Gọi Claude tạo bản tin
       env:
         ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
